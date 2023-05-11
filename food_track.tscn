@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bumq6v5ke4wr3"]
+
+[ext_resource type="Script" path="res://food_track.gd" id="1_dvnkf"]
+[ext_resource type="PackedScene" uid="uid://iqy8sy4en872" path="res://moving_food.tscn" id="1_syq3h"]
+
+[node name="FoodTrack" type="Node2D" node_paths=PackedStringArray("finishing_point")]
+script = ExtResource("1_dvnkf")
+moving_food = ExtResource("1_syq3h")
+finishing_point = NodePath("FinishingPoint")
+possible_food_ids = ["BASILICO", "BROCCOLO", "CAROTA"]
+
+[node name="FinishingPoint" type="Marker2D" parent="."]
+position = Vector2(666, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="spawn_food"]

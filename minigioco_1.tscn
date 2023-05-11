@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://o2sn21hp4o6q"]
+
+[ext_resource type="Texture2D" uid="uid://bvnvj8ugqgkrw" path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1.png" id="1_nx212"]
+[ext_resource type="PackedScene" uid="uid://bumq6v5ke4wr3" path="res://food_track.tscn" id="2_0ecwa"]
+[ext_resource type="PackedScene" uid="uid://gsnje2dqqw4j" path="res://destination_area.tscn" id="2_chuut"]
+
+[node name="Minigioco_1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 600)
+texture = ExtResource("1_nx212")
+
+[node name="DestinationArea" parent="." instance=ExtResource("2_chuut")]
+acceptable_ids = ["BASILICO", "BROCCOLO", "CAROTA"]
+
+[node name="FoodTrack" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(159, 542)
+
+[node name="FinishingPoint" parent="FoodTrack" index="0"]
+position = Vector2(623, 0)
+
+[editable path="FoodTrack"]
