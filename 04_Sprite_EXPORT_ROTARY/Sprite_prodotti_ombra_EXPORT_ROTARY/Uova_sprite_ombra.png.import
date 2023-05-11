@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmtfw7oq0yc2m"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://fb4sylnd16g6"
+path="res://.godot/imported/Uova_sprite_ombra.png-dd6fb6c72676f5b2476246f65d7d3b8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_ombra_EXPORT_ROTARY/Uova_sprite_ombra.png"
+dest_files=["res://.godot/imported/Uova_sprite_ombra.png-dd6fb6c72676f5b2476246f65d7d3b8a.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
