@@ -12,8 +12,7 @@ script = ExtResource("1_dvnkf")
 moving_food = ExtResource("1_syq3h")
 finishing_point = NodePath("FinishingPoint")
 food_res = ExtResource("3_aetv5")
-acceptable_id = "Cipolla"
-spawn_time_interval = Vector2(0.2, 2)
+acceptable_id = "Basilico"
 
 [node name="FinishingPoint" type="Marker2D" parent="."]
 position = Vector2(666, 0)
