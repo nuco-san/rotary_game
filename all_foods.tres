@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FoodRes" load_steps=2 format=3 uid="uid://cogvn4kew7na0"]
+
+[ext_resource type="Script" path="res://foodlist_res.gd" id="1_umd5u"]
+
+[resource]
+script = ExtResource("1_umd5u")
+food_ids = Array[String](["Basilico", "Broccolo", "Carota", "Cioccolato", "Cipolla", "Formaggio", "Fungo", "Gnocchi", "Lattina", "Mozzarella", "Pane", "Patatine", "Pomodoro", "Uova", "Yoghurt", "Zucchina"])

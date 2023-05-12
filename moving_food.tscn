@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://iqy8sy4en872"]
+[gd_scene load_steps=3 format=3 uid="uid://iqy8sy4en872"]
 
-[ext_resource type="Texture2D" uid="uid://bxtgbu7ccd6xs" path="res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/Basilico_sprite.png" id="1_og6ad"]
 [ext_resource type="Script" path="res://moving_food.gd" id="1_wchs4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0v88"]
-size = Vector2(106, 102)
+size = Vector2(72, 70)
 
 [node name="MovingFood" type="Area2D"]
 script = ExtResource("1_wchs4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_og6ad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i0v88")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
