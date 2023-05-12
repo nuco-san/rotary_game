@@ -8,12 +8,16 @@ extends Node2D
 
 @export var spawn_time_interval : Vector2
 
+@export var sprite_rotation : float = 0.0
+
 var time_since_last_click : float = 0.0
 var number_of_clicks : int = 0
 
 
 func _ready():
 	$FinishingPoint/FoodIcon.texture = load("res://03_Icone_EXPORT_ROTARY/" + acceptable_id + "_icona.png")
+	$FinishingPoint/FoodIcon.rotation_degrees = sprite_rotation
+	$FinishingPoint/ArrivedFoodSprite.rotation_degrees = sprite_rotation
 	prepare_spawn()
 
 
@@ -29,6 +33,7 @@ func spawn_food():
 	randomize()
 	var random_id = food_res.food_ids[randi() % food_res.food_ids.size()]
 	new_food.set_id(random_id)
+	new_food.set_sprite_rotation(sprite_rotation)
 	new_food.food_clicked.connect(_on_food_clicked)
 	new_food.move(finishing_point)
 

@@ -2,11 +2,41 @@
 
 [ext_resource type="Texture2D" uid="uid://u50vlx67dgir" path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1_sotto.png" id="1_dqomy"]
 [ext_resource type="PackedScene" uid="uid://bumq6v5ke4wr3" path="res://food_track.tscn" id="2_0ecwa"]
-[ext_resource type="Shader" path="res://shadow.gdshader" id="2_i3c28"]
 [ext_resource type="Texture2D" uid="uid://dqk8h2acy0fnk" path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1_sopra.png" id="3_16vsc"]
 
+[sub_resource type="Shader" id="Shader_blodx"]
+code = "shader_type canvas_item;
+
+uniform vec4 background_color : source_color;
+uniform vec4 shadow_color : source_color;
+// Currently pixels always in application size, so zooming in further wouldn't increase the size of the dropdown
+// but changing that would also be relatively trivial
+uniform vec2 offset_in_pixels;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+
+void fragment() {
+	
+	// Read screen texture
+	vec4 current_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
+	
+	// Check if the current color is our background color
+	if (length(current_color - background_color) < 0.01) {
+		
+		vec4 offset_color = textureLod(SCREEN_TEXTURE, SCREEN_UV - offset_in_pixels * SCREEN_PIXEL_SIZE, 0.0);
+		
+		// Check if at our offset position we have a color which is not the background (meaning here we need a shadow actually)
+		if (length(offset_color - background_color) > 0.01) {
+			// If so set it to our shadow color
+			current_color = shadow_color;
+		}
+	}
+	
+	COLOR = current_color;
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4xuy4"]
-shader = ExtResource("2_i3c28")
+shader = SubResource("Shader_blodx")
 shader_parameter/background_color = Color(1, 1, 1, 1)
 shader_parameter/shadow_color = null
 shader_parameter/offset_in_pixels = Vector2(10, 10)
@@ -17,19 +47,67 @@ shader_parameter/offset_in_pixels = Vector2(10, 10)
 position = Vector2(960, 600)
 texture = ExtResource("1_dqomy")
 
-[node name="FoodTrack" parent="." instance=ExtResource("2_0ecwa")]
+[node name="FoodTrack_left1" parent="." instance=ExtResource("2_0ecwa")]
 position = Vector2(159, 542)
 acceptable_id = "Basilico"
+sprite_rotation = 90.0
 
-[node name="FinishingPoint" parent="FoodTrack" index="0"]
+[node name="FinishingPoint" parent="FoodTrack_left1" index="0"]
 position = Vector2(628, -2)
 
-[node name="FoodTrack2" parent="." instance=ExtResource("2_0ecwa")]
+[node name="FoodTrack_left2" parent="." instance=ExtResource("2_0ecwa")]
 position = Vector2(159, 671)
-acceptable_id = "Pomodoro"
+acceptable_id = "Carota"
+sprite_rotation = 90.0
 
-[node name="FinishingPoint" parent="FoodTrack2" index="0"]
+[node name="FinishingPoint" parent="FoodTrack_left2" index="0"]
 position = Vector2(628, -2)
+
+[node name="FoodTrack_bottom1" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(903, 1250)
+acceptable_id = "Formaggio"
+
+[node name="FinishingPoint" parent="FoodTrack_bottom1" index="0"]
+position = Vector2(3, -574)
+
+[node name="FoodTrack_bottom2" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(1015, 1250)
+acceptable_id = "Gnocchi"
+
+[node name="FinishingPoint" parent="FoodTrack_bottom2" index="0"]
+position = Vector2(3, -574)
+
+[node name="FoodTrack_right1" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(1772, 559)
+acceptable_id = "Mozzarella"
+sprite_rotation = -90.0
+
+[node name="FinishingPoint" parent="FoodTrack_right1" index="0"]
+position = Vector2(-636, -19)
+
+[node name="FoodTrack_right2" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(1774, 674)
+acceptable_id = "Pomodoro"
+sprite_rotation = -90.0
+
+[node name="FinishingPoint" parent="FoodTrack_right2" index="0"]
+position = Vector2(-638, 1)
+
+[node name="FoodTrack_top1" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(903, -49)
+acceptable_id = "Uova"
+sprite_rotation = 180.0
+
+[node name="FinishingPoint" parent="FoodTrack_top1" index="0"]
+position = Vector2(3, 588)
+
+[node name="FoodTrack_top2" parent="." instance=ExtResource("2_0ecwa")]
+position = Vector2(1013, -49)
+acceptable_id = "Zucchina"
+sprite_rotation = 180.0
+
+[node name="FinishingPoint" parent="FoodTrack_top2" index="0"]
+position = Vector2(3, 588)
 
 [node name="Sfondo_sopra" type="Sprite2D" parent="."]
 position = Vector2(960, 600)
@@ -40,5 +118,11 @@ material = SubResource("ShaderMaterial_4xuy4")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[editable path="FoodTrack"]
-[editable path="FoodTrack2"]
+[editable path="FoodTrack_left1"]
+[editable path="FoodTrack_left2"]
+[editable path="FoodTrack_bottom1"]
+[editable path="FoodTrack_bottom2"]
+[editable path="FoodTrack_right1"]
+[editable path="FoodTrack_right2"]
+[editable path="FoodTrack_top1"]
+[editable path="FoodTrack_top2"]

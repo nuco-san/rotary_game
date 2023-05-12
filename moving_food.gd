@@ -5,10 +5,14 @@ var food_id : String
 var movement_time : float = 1.5
 
 
+func set_sprite_rotation(rotation : float):
+	$Shadow.rotation_degrees = rotation
+	$FoodSprite.rotation_degrees = rotation
+
 func set_id(id):
 	food_id = id
-	$Sprite2D.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + id + "_sprite.png")
-
+	$FoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + id + "_sprite.png")
+	$Shadow.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_ombra_EXPORT_ROTARY/" + id + "_ombra.png")
 
 func move(finishing_point : Marker2D):
 	var tween = get_tree().create_tween()
