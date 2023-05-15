@@ -23,7 +23,6 @@ func destroy():
 	queue_free()
 
 
-func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton && event.pressed:
-		emit_signal("food_clicked")
-		destroy()
+func _on_TouchScreenButton_pressed():
+	emit_signal("food_clicked")
+	destroy()

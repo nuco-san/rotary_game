@@ -50,11 +50,11 @@ func _on_destination_area_entered(area):
 	if acceptable_id == area.food_id:
 		$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_corretto.png")
 		is_filled_correctly = true
-		print("is_filled_correctly = " + str(is_filled_correctly))
+		Global.emit_signal("track_filled", true)
 	else:
 		$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_sbagliato.png")
 		is_filled_correctly = false
-		print("is_filled_correctly = " + str(is_filled_correctly))
+		Global.emit_signal("track_filled", false)
 	$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
 	area.destroy()
 

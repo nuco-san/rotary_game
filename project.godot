@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Rotary_game_v3"
 run/main_scene="res://Scenes/Minigioco_1.tscn"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/width=1920
@@ -34,6 +38,10 @@ window/stretch/aspect="keep"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
