@@ -1,11 +1,23 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/FoodTrack.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MovingFood.tscn" type="PackedScene" id=2]
 [ext_resource path="res://all_foods.tres" type="Resource" id=3]
+[ext_resource path="res://04_Sprite_EXPORT_ROTARY/Slot_sbagliato_1.png" type="Texture" id=4]
+[ext_resource path="res://04_Sprite_EXPORT_ROTARY/Slot_sbagliato_2.png" type="Texture" id=5]
+[ext_resource path="res://04_Sprite_EXPORT_ROTARY/Slot_corretto.png" type="Texture" id=6]
+[ext_resource path="res://04_Sprite_EXPORT_ROTARY/Slot_sbagliato_3.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 28, 29 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 56, 66 )
@@ -105,8 +117,19 @@ shape = SubResource( 1 )
 
 [node name="FoodIcon" type="Sprite" parent="FinishingPoint"]
 
-[node name="FoodBackground" type="Sprite" parent="FinishingPoint"]
+[node name="FoodBackgroundCorrect" type="Sprite" parent="FinishingPoint"]
+visible = false
 scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 6 )
+
+[node name="FoodBackgroundWrong" type="AnimatedSprite" parent="FinishingPoint"]
+visible = false
+scale = Vector2( 1.1, 1.1 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 1
+speed_scale = 1.4
+playing = true
 
 [node name="ArrivedFoodSprite" type="Sprite" parent="FinishingPoint"]
 

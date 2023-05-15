@@ -48,11 +48,13 @@ func spawn_food():
 func _on_destination_area_entered(area):
 	if acceptable_id == area.food_id:
 		if not is_filled_correctly:
-			$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_corretto.png")
+			$FinishingPoint/FoodBackgroundCorrect.show()
+			$FinishingPoint/FoodBackgroundWrong.hide()
 			is_filled_correctly = true
 			Global.emit_signal("track_filled", true)
 	else:
-		$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_sbagliato.png")
+		$FinishingPoint/FoodBackgroundCorrect.hide()
+		$FinishingPoint/FoodBackgroundWrong.show()
 		if is_filled_correctly:
 			is_filled_correctly = false
 			Global.emit_signal("track_filled", false)
@@ -77,7 +79,8 @@ func _on_clear_button_pressed():
 		yield($TransparencyAnimation, "animation_finished")
 		$FinishingPoint/ArrivedFoodSprite.modulate = Color.white
 		$FinishingPoint/ArrivedFoodSprite.texture = null
-		$FinishingPoint/FoodBackground.texture = null
+		$FinishingPoint/FoodBackgroundCorrect.hide()
+		$FinishingPoint/FoodBackgroundWrong.hide()
 	$ClearButtonTimer.start()
 
 

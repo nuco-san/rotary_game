@@ -1,18 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1_sopra.png" type="Texture" id=1]
 [ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1_sotto.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/TrackManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Minigioco_1.gd" type="Script" id=4]
-[ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 100
-font_data = ExtResource( 5 )
+[ext_resource path="res://Scenes/Minigioco.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/PlayerUI.tscn" type="PackedScene" id=6]
 
 [node name="Minigioco_1" type="Node2D"]
+position = Vector2( 0, -7 )
 script = ExtResource( 4 )
-score_label_path = NodePath("UI/Label")
 
 [node name="Sfondo_sotto" type="Sprite" parent="."]
 position = Vector2( 961, 598 )
@@ -43,6 +39,9 @@ sprite_rotation = -90.0
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_1" index="0"]
 position = Vector2( -659, 0 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
+frame = 0
+
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 position = Vector2( 0, 133 )
 acceptable_id = "Gnocchi"
@@ -50,6 +49,9 @@ sprite_rotation = -90.0
 
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_2" index="0"]
 position = Vector2( -659, 0 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
+frame = 0
 
 [node name="TrackManagerTop" parent="." instance=ExtResource( 3 )]
 position = Vector2( 897, -41 )
@@ -61,6 +63,9 @@ sprite_rotation = 180.0
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_1" index="0"]
 position = Vector2( 8, 578 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
+frame = 0
+
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 position = Vector2( 117, -1 )
 acceptable_id = "Pomodoro"
@@ -68,6 +73,9 @@ sprite_rotation = 180.0
 
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_2" index="0"]
 position = Vector2( 7, 581 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
+frame = 0
 
 [node name="TrackManagerBottom" parent="." instance=ExtResource( 3 )]
 position = Vector2( 897, 1257 )
@@ -78,12 +86,18 @@ acceptable_id = "Uova"
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_1" index="0"]
 position = Vector2( 8, -588 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
+frame = 0
+
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 position = Vector2( 117, -1 )
 acceptable_id = "Zucchina"
 
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_2" index="0"]
 position = Vector2( 7, -585 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
+frame = 0
 
 [node name="Sfondo_sopra" type="Sprite" parent="."]
 position = Vector2( 961, 601 )
@@ -96,14 +110,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Label" type="Label" parent="UI"]
-margin_left = 48.0
-margin_top = 228.0
-margin_right = 88.0
-margin_bottom = 242.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "0"
+[node name="PlayerUI" parent="UI" instance=ExtResource( 6 )]
 
 [editable path="TrackManagerLeft"]
 [editable path="TrackManagerRight"]

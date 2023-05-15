@@ -1,8 +1,5 @@
 extends Node2D
 
-export(NodePath) var score_label_path
-onready var score_label : Label = get_node(score_label_path)
-
 
 var score := 0
 
@@ -16,4 +13,6 @@ func _on_track_filled(correctly):
 		score += 1
 	else:
 		score -= 1
-	score_label.text = str(score)
+	if score == 8:
+		score = 0
+		Global.increase_round()

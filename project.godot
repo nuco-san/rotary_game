@@ -25,7 +25,7 @@ run/main_scene="res://Scenes/Minigioco_1.tscn"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://Scenes/Global.tscn"
 
 [display]
 
