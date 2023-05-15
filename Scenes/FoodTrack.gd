@@ -48,15 +48,17 @@ func spawn_food():
 func _on_destination_area_entered(area):
 	emit_signal("track_empty", track_id)
 	if acceptable_id == area.food_id:
-		$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_corretto.png")
-		is_filled_correctly = true
-		Global.emit_signal("track_filled", true)
+		if not is_filled_correctly:
+			$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_corretto.png")
+			is_filled_correctly = true
+			Global.emit_signal("track_filled", true)
 	else:
 		$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_sbagliato.png")
-		is_filled_correctly = false
-		Global.emit_signal("track_filled", false)
+		if is_filled_correctly:
+			is_filled_correctly = false
+			Global.emit_signal("track_filled", false)
 	$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
-	area.destroy()
+	area.destroy_arrive()
 
 
 func _on_food_avoided():
@@ -69,6 +71,9 @@ func _on_clear_button_pressed():
 		$FinishingPoint/ArrivedFoodSprite.texture = null
 		$FinishingPoint/FoodBackground.texture = null
 		reset_clicks()
+		if is_filled_correctly:
+			is_filled_correctly = false
+			Global.emit_signal("track_filled", false)
 	$ClearButtonTimer.start()
 
 

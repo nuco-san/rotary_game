@@ -8,7 +8,7 @@
 extents = Vector2( 28, 29 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 60, 70 )
+extents = Vector2( 56, 66 )
 
 [node name="FoodTrack" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,7 +32,7 @@ scale = Vector2( 1.1, 1.1 )
 [node name="ArrivedFoodSprite" type="Sprite" parent="FinishingPoint"]
 
 [node name="ClearButton" type="TouchScreenButton" parent="FinishingPoint"]
-position = Vector2( -60, -70 )
+position = Vector2( -56, -66 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
