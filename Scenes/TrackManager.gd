@@ -16,7 +16,6 @@ var is_spawning = false
 func _ready():
 	track_1.connect("track_empty", self, "_on_track_empty")
 	track_2.connect("track_empty", self, "_on_track_empty")
-	first_spawn()
 
 
 func first_spawn():
