@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 track_1_path = NodePath("FoodTrack_1")
 track_2_path = NodePath("FoodTrack_2")
-spawn_time_interval = Vector2( 0.2, 1.5 )
+spawn_time_interval = Vector2( 0.4, 1.5 )
 
 [node name="FoodTrack_1" parent="." instance=ExtResource( 1 )]
 track_id = 1

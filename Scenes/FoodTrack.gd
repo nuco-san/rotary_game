@@ -46,7 +46,6 @@ func spawn_food():
 
 
 func _on_destination_area_entered(area):
-	emit_signal("track_empty", track_id)
 	if acceptable_id == area.food_id:
 		if not is_filled_correctly:
 			$FinishingPoint/FoodBackground.texture = load("res://04_Sprite_EXPORT_ROTARY/Slot_corretto.png")
@@ -58,6 +57,7 @@ func _on_destination_area_entered(area):
 			is_filled_correctly = false
 			Global.emit_signal("track_filled", false)
 	$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
+	emit_signal("track_empty", track_id)
 	area.destroy_arrive()
 
 

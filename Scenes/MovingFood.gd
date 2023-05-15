@@ -2,7 +2,7 @@ extends Area2D
 
 signal food_clicked
 var food_id : String
-var movement_time : float = 1.5
+var movement_time : float = 2
 
 
 func set_sprite_rotation(rotation : float):
@@ -25,6 +25,7 @@ func destroy_tap():
 	$Tween.stop_all()
 	$AnimationPlayer.play("destroy")
 	yield($AnimationPlayer, "animation_finished")
+	emit_signal("food_clicked")
 	queue_free()
 
 
@@ -33,5 +34,4 @@ func destroy_arrive():
 
 
 func _on_TouchScreenButton_pressed():
-	emit_signal("food_clicked")
 	destroy_tap()
