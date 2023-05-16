@@ -127,6 +127,7 @@ visible = false
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 7 )
 animation = "New Anim"
+frame = 2
 speed_scale = 1.4
 playing = true
 
@@ -136,9 +137,7 @@ playing = true
 position = Vector2( -56, -66 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+[node name="FoodContainer" type="Node2D" parent="."]
 
 [node name="ClearButtonTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -154,5 +153,4 @@ anims/disappear = SubResource( 6 )
 
 [connection signal="area_entered" from="FinishingPoint/DestinationArea" to="." method="_on_destination_area_entered"]
 [connection signal="pressed" from="FinishingPoint/ClearButton" to="." method="_on_clear_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="spawn_food"]
 [connection signal="timeout" from="ClearButtonTimer" to="." method="reset_clicks"]

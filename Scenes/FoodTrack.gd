@@ -26,7 +26,7 @@ func _ready():
 
 func spawn_food():
 	var new_food = moving_food.instance()
-	add_child(new_food)
+	$FoodContainer.add_child(new_food)
 	randomize()
 	var random_value = rand_range(0.0, 1.0)
 	var random_id
@@ -86,3 +86,18 @@ func _on_clear_button_pressed():
 
 func reset_clicks():
 	number_of_clicks = 0
+
+
+func reset_track():
+	is_filled_correctly = false
+	number_of_clicks = 0
+	$ClearButtonTimer.stop()
+	for food in $FoodContainer.get_children():
+		food.queue_free()
+	$FinishingPoint/FoodBackgroundCorrect.hide()
+	$FinishingPoint/FoodBackgroundWrong.hide()
+	$FinishingPoint/ArrivedFoodSprite.texture = null
+
+
+
+

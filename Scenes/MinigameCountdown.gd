@@ -10,13 +10,16 @@ func _ready():
 
 
 func start_countdown():
+	$VBoxContainer/RoundLabel.text = "Round " + str(Global.current_round)
 	countdown_time = 3
 	$Timer.start()
 
 
 func _on_Timer_timeout():
 	countdown_time -= 1
-	$PlayerLabel.text = str(countdown_time)
+	$VBoxContainer/CounterLabel.text = str(countdown_time)
 	if countdown_time == 0:
-		emit_signal("countdown_finished")
 		hide()
+		$VBoxContainer/CounterLabel.text = str(3)
+		$Timer.stop()
+		emit_signal("countdown_finished")
