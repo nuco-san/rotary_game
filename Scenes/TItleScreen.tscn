@@ -75,11 +75,13 @@ minigame_number = 1
 [node name="BottoneMinigioco_2" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
 margin_top = 52.0
 margin_bottom = 100.0
+text = "Minigioco 2"
 minigame_number = 2
 
 [node name="BottoneMinigioco_3" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
 margin_top = 104.0
 margin_bottom = 152.0
+text = "Minigioco 3"
 minigame_number = 3
 
 [connection signal="pressed" from="MainButtons/StoryModeButton" to="." method="start_story_mode"]

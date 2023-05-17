@@ -5,9 +5,6 @@ signal countdown_finished
 var countdown_time := 3
 
 
-func _ready():
-	start_countdown()
-
 
 func start_countdown():
 	$VBoxContainer/RoundLabel.text = "Round " + str(Global.current_round)

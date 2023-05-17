@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Rotary_game_v3"
-run/main_scene="res://Scenes/Minigioco.tscn"
+run/main_scene="res://Scenes/TItleScreen.tscn"
 
 [autoload]
 

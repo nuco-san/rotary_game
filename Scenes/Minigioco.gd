@@ -1,12 +1,16 @@
 extends Node2D
 
-
-var time_left := 600
+var time_left := 60
 var score := 0
 
 
 func _ready():
 	Global.connect("track_filled", self, "_on_track_filled")
+	$MinigameSlides.connect("slides_finished", self, "start_minigame")
+
+
+func start_minigame():
+	$UI/MinigameCountdown.start_countdown()
 
 
 func _on_track_filled(correctly):
@@ -19,6 +23,7 @@ func _on_track_filled(correctly):
 
 
 func _on_countdown_finished():
+	$LevelTimer.start()
 	$TrackManagerLeft.first_spawn()
 	$TrackManagerBottom.first_spawn()
 	$TrackManagerRight.first_spawn()
@@ -27,9 +32,10 @@ func _on_countdown_finished():
 
 func _on_LevelTimer_timeout():
 	time_left -= 1
-	emit_signal("timer_updated", time_left)
+	Global.emit_signal("timer_updated", time_left)
 	if time_left <= 0:
-		pass
+		print("nextt")
+		Global.next_minigame()
 
 
 func reset_minigame():

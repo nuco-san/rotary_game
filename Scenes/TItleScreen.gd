@@ -2,11 +2,11 @@ extends Control
 
 
 func start_story_mode():
-	pass
+	Global.load_minigame(1)
 
 func show_level_selection():
 	$MainButtons.hide()
 	$LevelSelectionButtons.show()
 
 func start_selected_minigame(number):
-	pass
+	Global.load_minigame(number)
