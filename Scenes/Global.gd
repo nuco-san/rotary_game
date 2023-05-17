@@ -11,8 +11,12 @@ signal round_updated
 
 func next_minigame():
 	current_round = 1
-	current_minigame += 1
-	get_tree().change_scene("res://Scenes/Minigiochi/Minigioco_" + str(current_minigame) + ".tscn")
+	if current_minigame == 3:
+		get_tree().change_scene("res://Scenes/TItleScreen.tscn")
+		current_minigame = 1
+	else:		
+		current_minigame += 1
+		get_tree().change_scene("res://Scenes/Minigiochi/Minigioco_" + str(current_minigame) + ".tscn")
 
 
 func increase_round():

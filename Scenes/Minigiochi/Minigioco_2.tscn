@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Minigioco.tscn" type="PackedScene" id=1]
 [ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_2_sotto.png" type="Texture" id=2]
 [ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_2_sopra.png" type="Texture" id=3]
 [ext_resource path="res://bought_foods.tres" type="Resource" id=4]
+[ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_intro_EXPORT_ROTARY/Cutscenes_Intro_4.png" type="Texture" id=5]
+[ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_intro_EXPORT_ROTARY/Cutscenes_Intro_3.png" type="Texture" id=6]
 
 [node name="Minigioco_2" instance=ExtResource( 1 )]
 
@@ -18,7 +20,7 @@ acceptable_id = "Uova"
 position = Vector2( 657, -4 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_1/FinishingPoint" index="3"]
-frame = 2
+frame = 0
 
 [node name="FoodTrack_2" parent="TrackManagerLeft" index="1"]
 food_res = ExtResource( 4 )
@@ -28,7 +30,7 @@ acceptable_id = "Gnocchi"
 position = Vector2( 657, -8 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_2/FinishingPoint" index="3"]
-frame = 2
+frame = 0
 
 [node name="FoodTrack_1" parent="TrackManagerBottom" index="0"]
 food_res = ExtResource( 4 )
@@ -73,6 +75,10 @@ position = Vector2( 11, 573 )
 
 [node name="Sfondo_sopra" parent="." index="5"]
 texture = ExtResource( 3 )
+
+[node name="IntroSlides" parent="." index="7"]
+texture = ExtResource( 6 )
+slides = [ ExtResource( 6 ), ExtResource( 5 ) ]
 
 [editable path="TrackManagerLeft"]
 [editable path="TrackManagerLeft/FoodTrack_1"]

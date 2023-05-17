@@ -6,7 +6,8 @@ var score := 0
 
 func _ready():
 	Global.connect("track_filled", self, "_on_track_filled")
-	$MinigameSlides.connect("slides_finished", self, "start_minigame")
+	$IntroSlides.connect("slides_finished", self, "start_minigame")
+	$ResultsUI.connect("results_read", self, "_on_results_read")
 
 
 func start_minigame():
@@ -34,11 +35,22 @@ func _on_LevelTimer_timeout():
 	time_left -= 1
 	Global.emit_signal("timer_updated", time_left)
 	if time_left <= 0:
-		print("nextt")
-		Global.next_minigame()
+		stop_minigame()
+		$LevelTimer.stop()
+		$ResultsUI.show()
 
 
 func reset_minigame():
+	stop_minigame()
+	$UI/MinigameCountdown.show()
+	$UI/MinigameCountdown.start_countdown()
+
+
+func _on_results_read():
+	Global.next_minigame()
+
+
+func stop_minigame():
 	yield(get_tree().create_timer(0.2), "timeout")
 	Global.increase_round()
 	score = 0
@@ -46,6 +58,3 @@ func reset_minigame():
 	$TrackManagerBottom.reset_tracks()
 	$TrackManagerRight.reset_tracks()
 	$TrackManagerTop.reset_tracks()
-	$UI/MinigameCountdown.show()
-	$UI/MinigameCountdown.start_countdown()
-
