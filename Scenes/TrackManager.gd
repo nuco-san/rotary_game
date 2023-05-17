@@ -20,7 +20,7 @@ func _ready():
 
 func first_spawn():
 	randomize_timer()
-	$Timer.paused = false
+	$Timer.start()
 	track_1.spawn_food()
 
 

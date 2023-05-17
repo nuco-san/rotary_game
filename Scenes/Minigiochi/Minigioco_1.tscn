@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Minigioco.tscn" type="PackedScene" id=1]
+
+[node name="Minigioco_1" instance=ExtResource( 1 )]
+
+[editable path="TrackManagerLeft"]
+[editable path="TrackManagerBottom"]
+[editable path="TrackManagerBottom/FoodTrack_1"]
+[editable path="TrackManagerBottom/FoodTrack_2"]
+[editable path="TrackManagerRight"]
+[editable path="TrackManagerRight/FoodTrack_1"]
+[editable path="TrackManagerRight/FoodTrack_2"]
+[editable path="TrackManagerTop"]
+[editable path="TrackManagerTop/FoodTrack_1"]
+[editable path="TrackManagerTop/FoodTrack_2"]
+[editable path="UI/PlayerUILeft"]
+[editable path="UI/PlayerUIBottom"]
+[editable path="UI/PlayerUIRight"]
+[editable path="UI/PlayerUITop"]

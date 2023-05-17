@@ -1,8 +1,8 @@
 extends Node2D
 
+
 var time_left := 600
 var score := 0
-
 
 
 func _ready():
@@ -42,8 +42,4 @@ func reset_minigame():
 	$TrackManagerTop.reset_tracks()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.start_countdown()
-
-
-
-
 
