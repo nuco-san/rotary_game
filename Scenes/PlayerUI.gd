@@ -12,8 +12,8 @@ func _ready():
 func update_timer(time):
 	var minutes = floor(time / 60)
 	var seconds = time - minutes * 60
-	$TimerLabel.text = str(minutes) + ":" + str(seconds)
+	$TimerLabel.text = str("%02d" % minutes) + ":" + str("%02d" % seconds)
 
 
 func update_round(_round):
-	$RoundContainer/RoundValue.text = "0" + str(_round)
+	$RoundContainer/RoundValue.text = str(_round)
