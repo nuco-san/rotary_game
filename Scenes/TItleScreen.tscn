@@ -68,6 +68,7 @@ margin_left = -128.0
 margin_top = 25.0
 margin_right = 128.0
 margin_bottom = 206.0
+custom_constants/separation = 30
 
 [node name="BottoneMinigioco_1" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
 minigame_number = 1
@@ -84,8 +85,16 @@ margin_bottom = 152.0
 text = "Minigioco 3"
 minigame_number = 3
 
+[node name="LevelSelectionButton" type="Button" parent="LevelSelectionButtons"]
+margin_top = 156.0
+margin_right = 256.0
+margin_bottom = 204.0
+custom_fonts/font = SubResource( 2 )
+text = "INDIETRO"
+
 [connection signal="pressed" from="MainButtons/StoryModeButton" to="." method="start_story_mode"]
 [connection signal="pressed" from="MainButtons/LevelSelectionButton" to="." method="show_level_selection"]
 [connection signal="minigame_selected" from="LevelSelectionButtons/BottoneMinigioco_1" to="." method="start_selected_minigame"]
 [connection signal="minigame_selected" from="LevelSelectionButtons/BottoneMinigioco_2" to="." method="start_selected_minigame"]
 [connection signal="minigame_selected" from="LevelSelectionButtons/BottoneMinigioco_3" to="." method="start_selected_minigame"]
+[connection signal="pressed" from="LevelSelectionButtons/LevelSelectionButton" to="." method="hide_level_selection"]

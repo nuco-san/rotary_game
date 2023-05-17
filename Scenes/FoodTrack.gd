@@ -52,12 +52,14 @@ func _on_destination_area_entered(area):
 			$FinishingPoint/FoodBackgroundWrong.hide()
 			is_filled_correctly = true
 			Global.emit_signal("track_filled", true)
+			Global.emit_signal("tick_item", acceptable_id)
 	else:
 		$FinishingPoint/FoodBackgroundCorrect.hide()
 		$FinishingPoint/FoodBackgroundWrong.show()
 		if is_filled_correctly:
 			is_filled_correctly = false
 			Global.emit_signal("track_filled", false)
+			Global.emit_signal("untick_item", acceptable_id)
 	$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
 	emit_signal("track_empty", track_id)
 	area.destroy_arrive()

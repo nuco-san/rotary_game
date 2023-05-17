@@ -7,6 +7,8 @@ var current_round := 1
 signal track_filled
 signal timer_updated
 signal round_updated
+signal tick_item
+signal untick_item
 
 
 func next_minigame():

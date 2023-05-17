@@ -20,7 +20,7 @@ acceptable_id = "Uova"
 position = Vector2( 657, -4 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="FoodTrack_2" parent="TrackManagerLeft" index="1"]
 food_res = ExtResource( 4 )
@@ -30,7 +30,7 @@ acceptable_id = "Gnocchi"
 position = Vector2( 657, -8 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="FoodTrack_1" parent="TrackManagerBottom" index="0"]
 food_res = ExtResource( 4 )
@@ -39,12 +39,18 @@ acceptable_id = "Zucchina"
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_1" index="0"]
 position = Vector2( 18, -588 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 food_res = ExtResource( 4 )
 acceptable_id = "Carota"
 
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_2" index="0"]
 position = Vector2( 12, -586 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
 
 [node name="FoodTrack_1" parent="TrackManagerRight" index="0"]
 food_res = ExtResource( 4 )
@@ -53,12 +59,18 @@ acceptable_id = "Mozzarella"
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_1" index="0"]
 position = Vector2( -639, -3 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 food_res = ExtResource( 4 )
 acceptable_id = "Formaggio"
 
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_2" index="0"]
 position = Vector2( -638, -6 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
 
 [node name="FoodTrack_1" parent="TrackManagerTop" index="0"]
 food_res = ExtResource( 4 )
@@ -67,14 +79,23 @@ acceptable_id = "Basilico"
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_1" index="0"]
 position = Vector2( 17, 572 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 food_res = ExtResource( 4 )
 
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_2" index="0"]
 position = Vector2( 11, 573 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
+
 [node name="Sfondo_sopra" parent="." index="5"]
 texture = ExtResource( 3 )
+
+[node name="FoodList" parent="UI" index="5"]
+visible = false
 
 [node name="IntroSlides" parent="." index="7"]
 texture = ExtResource( 6 )
@@ -96,3 +117,4 @@ slides = [ ExtResource( 6 ), ExtResource( 5 ) ]
 [editable path="UI/PlayerUIBottom"]
 [editable path="UI/PlayerUIRight"]
 [editable path="UI/PlayerUITop"]
+[editable path="UI/FoodList"]

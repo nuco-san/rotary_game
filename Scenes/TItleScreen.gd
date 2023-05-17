@@ -10,3 +10,8 @@ func show_level_selection():
 
 func start_selected_minigame(number):
 	Global.load_minigame(number)
+
+
+func hide_level_selection():
+	$MainButtons.show()
+	$LevelSelectionButtons.hide()

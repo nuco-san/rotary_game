@@ -4,6 +4,30 @@
 
 [node name="Minigioco_1" instance=ExtResource( 1 )]
 
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodList" parent="UI" index="5"]
+margin_left = 1291.0
+margin_right = 1641.0
+foods = [ "Pomodoro", "Formaggio", "Basilico", "Mozzarella", "Carota", "Zucchina", "Uova", "Gnocchi" ]
+title = "Lista della spesa"
+
 [editable path="TrackManagerLeft"]
 [editable path="TrackManagerBottom"]
 [editable path="TrackManagerBottom/FoodTrack_1"]
@@ -18,3 +42,4 @@
 [editable path="UI/PlayerUIBottom"]
 [editable path="UI/PlayerUIRight"]
 [editable path="UI/PlayerUITop"]
+[editable path="UI/FoodList"]
