@@ -1,78 +1,75 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Minigioco.tscn" type="PackedScene" id=1]
-[ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_2_sotto.png" type="Texture" id=2]
-[ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_2_sopra.png" type="Texture" id=3]
-[ext_resource path="res://bought_foods.tres" type="Resource" id=4]
+[ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_3_sopra.png" type="Texture" id=2]
+[ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_3_sotto.png" type="Texture" id=3]
+[ext_resource path="res://sorrentina_foods.tres" type="Resource" id=4]
 
-[node name="Minigioco_2" instance=ExtResource( 1 )]
+[node name="Minigioco_3" instance=ExtResource( 1 )]
 
 [node name="Sfondo_sotto" parent="." index="0"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="FoodTrack_1" parent="TrackManagerLeft" index="0"]
 food_res = ExtResource( 4 )
-acceptable_id = "Uova"
+acceptable_id = "Gnocchi"
 
 [node name="FinishingPoint" parent="TrackManagerLeft/FoodTrack_1" index="0"]
-position = Vector2( 657, -4 )
-
-[node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_1/FinishingPoint" index="3"]
-frame = 2
+position = Vector2( 672, -6 )
 
 [node name="FoodTrack_2" parent="TrackManagerLeft" index="1"]
 food_res = ExtResource( 4 )
 acceptable_id = "Gnocchi"
 
 [node name="FinishingPoint" parent="TrackManagerLeft/FoodTrack_2" index="0"]
-position = Vector2( 657, -8 )
-
-[node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_2/FinishingPoint" index="3"]
-frame = 2
+position = Vector2( 672, -7 )
 
 [node name="FoodTrack_1" parent="TrackManagerBottom" index="0"]
 food_res = ExtResource( 4 )
-acceptable_id = "Zucchina"
+acceptable_id = "Mozzarella"
 
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_1" index="0"]
-position = Vector2( 18, -588 )
+position = Vector2( 11, -592 )
 
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 food_res = ExtResource( 4 )
-acceptable_id = "Carota"
+acceptable_id = "Mozzarella"
 
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_2" index="0"]
-position = Vector2( 12, -586 )
+position = Vector2( 5, -591 )
 
 [node name="FoodTrack_1" parent="TrackManagerRight" index="0"]
 food_res = ExtResource( 4 )
-acceptable_id = "Mozzarella"
+acceptable_id = "Basilico"
 
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_1" index="0"]
-position = Vector2( -639, -3 )
+position = Vector2( -665, -6 )
 
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 food_res = ExtResource( 4 )
-acceptable_id = "Formaggio"
+acceptable_id = "Basilico"
 
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_2" index="0"]
-position = Vector2( -638, -6 )
+position = Vector2( -665, -7 )
 
 [node name="FoodTrack_1" parent="TrackManagerTop" index="0"]
 food_res = ExtResource( 4 )
-acceptable_id = "Basilico"
+acceptable_id = "Pomodoro"
 
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_1" index="0"]
-position = Vector2( 17, 572 )
+position = Vector2( 11, 574 )
 
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 food_res = ExtResource( 4 )
 
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_2" index="0"]
-position = Vector2( 11, 573 )
+position = Vector2( 6, 576 )
 
 [node name="Sfondo_sopra" parent="." index="5"]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
+
+[node name="UI" parent="." index="6"]
+visible = false
 
 [editable path="TrackManagerLeft"]
 [editable path="TrackManagerLeft/FoodTrack_1"]

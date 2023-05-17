@@ -14,7 +14,7 @@ func _on_track_filled(correctly):
 		score += 1
 	else:
 		score -= 1
-	if score == 2:
+	if score == 8:
 		reset_minigame()
 
 
