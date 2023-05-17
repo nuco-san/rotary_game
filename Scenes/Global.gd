@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var minigame_duration := 60
 var current_minigame := 1
 var current_round := 1
 

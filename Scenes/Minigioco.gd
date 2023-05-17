@@ -1,10 +1,11 @@
 extends Node2D
 
-var time_left := 60
+var time_left
 var score := 0
 
 
 func _ready():
+	time_left = Global.minigame_duration
 	Global.connect("track_filled", self, "_on_track_filled")
 	$ResultsUI.connect("results_read", self, "_on_results_read")
 

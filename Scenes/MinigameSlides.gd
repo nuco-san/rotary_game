@@ -10,6 +10,7 @@ var total_slides_number
 
 func _ready():
 	total_slides_number = slides.size()
+	texture = slides[0]
 
 
 func next_slide():

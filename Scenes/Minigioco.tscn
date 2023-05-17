@@ -46,18 +46,12 @@ acceptable_id = "Uova"
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_1" index="0"]
 position = Vector2( 8, -588 )
 
-[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
-
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 position = Vector2( 117, -1 )
 acceptable_id = "Zucchina"
 
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_2" index="0"]
 position = Vector2( 7, -585 )
-
-[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
 
 [node name="TrackManagerRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1797, 539 )
@@ -69,9 +63,6 @@ sprite_rotation = -90.0
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_1" index="0"]
 position = Vector2( -659, 0 )
 
-[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
-
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 position = Vector2( 0, 133 )
 acceptable_id = "Gnocchi"
@@ -79,9 +70,6 @@ sprite_rotation = -90.0
 
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_2" index="0"]
 position = Vector2( -659, 0 )
-
-[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
 
 [node name="TrackManagerTop" parent="." instance=ExtResource( 3 )]
 position = Vector2( 897, -41 )
@@ -93,9 +81,6 @@ sprite_rotation = 180.0
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_1" index="0"]
 position = Vector2( 8, 578 )
 
-[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
-
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 position = Vector2( 117, -1 )
 acceptable_id = "Pomodoro"
@@ -103,9 +88,6 @@ sprite_rotation = 180.0
 
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_2" index="0"]
 position = Vector2( 7, 581 )
-
-[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
 
 [node name="Sfondo_sopra" type="Sprite" parent="."]
 position = Vector2( 961, 601 )
@@ -204,6 +186,7 @@ margin_bottom = 524.0
 rect_rotation = 180.0
 
 [node name="MinigameCountdown" parent="UI" instance=ExtResource( 5 )]
+visible = false
 margin_left = -990.0
 margin_top = -623.0
 margin_right = 990.0

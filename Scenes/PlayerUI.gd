@@ -3,6 +3,7 @@ extends Control
 export(int) var player_id
 
 func _ready():
+	update_timer(Global.minigame_duration)
 	Global.connect("timer_updated", self, "update_timer")
 	Global.connect("round_updated", self, "update_round")
 	$PlayerLabel.text = "Player " + str(player_id)
