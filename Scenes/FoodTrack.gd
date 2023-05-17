@@ -51,12 +51,14 @@ func spawn_food():
 func _on_destination_area_entered(area):
 	if acceptable_id == area.food_id:
 		if not is_filled_correctly:
+			$CorrectSound.play()
 			$FinishingPoint/FoodBackgroundCorrect.show()
 			$FinishingPoint/FoodBackgroundWrong.hide()
 			is_filled_correctly = true
 			Global.emit_signal("track_filled", true)
 			Global.emit_signal("tick_item", acceptable_id)
 	else:
+		$WrongSound.play()
 		$FinishingPoint/FoodBackgroundCorrect.hide()
 		$FinishingPoint/FoodBackgroundWrong.show()
 		if is_filled_correctly:

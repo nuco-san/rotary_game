@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bleep.mp3-9a22e1fc5719ca122d03431c667bbab6.mp3str"
+
+[deps]
+
+source_file="res://SOund/bleep.mp3"
+dest_files=[ "res://.import/bleep.mp3-9a22e1fc5719ca122d03431c667bbab6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

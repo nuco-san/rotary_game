@@ -29,7 +29,7 @@ position = Vector2( 0, -7 )
 script = ExtResource( 4 )
 
 [node name="Sfondo_sotto" type="Sprite" parent="."]
-position = Vector2( 961, 598 )
+position = Vector2( 961, 607 )
 texture = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
@@ -39,6 +39,7 @@ __meta__ = {
 visible = false
 position = Vector2( -7, -25 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="TrackManagerLeft" parent="." instance=ExtResource( 3 )]
@@ -124,7 +125,7 @@ position = Vector2( 7, 581 )
 frame = 1
 
 [node name="Sfondo_sopra" type="Sprite" parent="."]
-position = Vector2( 961, 601 )
+position = Vector2( 961, 610 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true

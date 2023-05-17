@@ -22,6 +22,7 @@ func move(finishing_point : Position2D):
 
 
 func destroy_tap():
+	$AudioStreamPlayer.play()
 	$Tween.stop_all()
 	$AnimationPlayer.play("destroy")
 	yield($AnimationPlayer, "animation_finished")

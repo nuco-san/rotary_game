@@ -5,8 +5,35 @@
 [node name="Minigioco_1" instance=ExtResource( 1 )]
 minigame_number = 1
 
-[node name="Fuoco" parent="Sfondo_sotto" index="0"]
-frame = 1
+[node name="TrackManagerLeft" parent="." index="1"]
+position = Vector2( 124, 551 )
+
+[node name="TrackManagerBottom" parent="." index="2"]
+position = Vector2( 897, 1269 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
+
+[node name="TrackManagerRight" parent="." index="3"]
+position = Vector2( 1797, 551 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
+
+[node name="TrackManagerTop" parent="." index="4"]
+position = Vector2( 897, -29 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
 
 [node name="FoodList" parent="UI" index="5"]
 margin_left = 1291.0
