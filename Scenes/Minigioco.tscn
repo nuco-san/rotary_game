@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1_sopra.png" type="Texture" id=1]
 [ext_resource path="res://02_Sfondi_EXPORT_ROTARY/Sfondo_1_sotto.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_intro_EXPORT_ROTARY/Cutscenes_Intro_2.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/ResultsUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/FoodList.tscn" type="PackedScene" id=11]
+[ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_outro_EXPORT_ROTARY/Cutscenes_Outro_1.png" type="Texture" id=12]
+[ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_outro_EXPORT_ROTARY/Cutscenes_Outro_2.png" type="Texture" id=13]
 
 [node name="Minigioco" type="Node2D"]
 position = Vector2( 0, -7 )
@@ -45,7 +47,7 @@ acceptable_id = "Uova"
 position = Vector2( 8, -588 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
-frame = 1
+frame = 0
 
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 position = Vector2( 117, -1 )
@@ -55,7 +57,7 @@ acceptable_id = "Zucchina"
 position = Vector2( 7, -585 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
-frame = 1
+frame = 0
 
 [node name="TrackManagerRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1797, 539 )
@@ -68,7 +70,7 @@ sprite_rotation = -90.0
 position = Vector2( -659, 0 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
-frame = 1
+frame = 0
 
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 position = Vector2( 0, 133 )
@@ -79,7 +81,7 @@ sprite_rotation = -90.0
 position = Vector2( -659, 0 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
-frame = 1
+frame = 0
 
 [node name="TrackManagerTop" parent="." instance=ExtResource( 3 )]
 position = Vector2( 897, -41 )
@@ -92,7 +94,7 @@ sprite_rotation = 180.0
 position = Vector2( 8, 578 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
-frame = 1
+frame = 0
 
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 position = Vector2( 117, -1 )
@@ -103,7 +105,7 @@ sprite_rotation = 180.0
 position = Vector2( 7, 581 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
-frame = 1
+frame = 0
 
 [node name="Sfondo_sopra" type="Sprite" parent="."]
 position = Vector2( 961, 601 )
@@ -224,9 +226,16 @@ margin_right = 1925.0
 margin_bottom = 1211.0
 rect_min_size = Vector2( 1930, 1210 )
 
+[node name="OutroSlides" parent="." instance=ExtResource( 7 )]
+visible = false
+texture = ExtResource( 12 )
+slides = [ ExtResource( 12 ), ExtResource( 13 ) ]
+
 [node name="LevelTimer" type="Timer" parent="."]
 
 [connection signal="countdown_finished" from="UI/MinigameCountdown" to="." method="_on_countdown_finished"]
+[connection signal="slides_finished" from="IntroSlides" to="." method="start_minigame"]
+[connection signal="slides_finished" from="OutroSlides" to="." method="load_next_minigame"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 
 [editable path="TrackManagerLeft"]

@@ -6,7 +6,6 @@ var score := 0
 
 func _ready():
 	Global.connect("track_filled", self, "_on_track_filled")
-	$IntroSlides.connect("slides_finished", self, "start_minigame")
 	$ResultsUI.connect("results_read", self, "_on_results_read")
 
 
@@ -47,6 +46,10 @@ func reset_minigame():
 
 
 func _on_results_read():
+	$OutroSlides.show()
+
+
+func load_next_minigame():
 	Global.next_minigame()
 
 
