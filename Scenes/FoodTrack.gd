@@ -16,12 +16,17 @@ var time_since_last_click : float = 0.0
 var number_of_clicks : int = 0
 
 var is_filled_correctly = false
+var new_food_array = []
+
 
 
 func _ready():
 	$FinishingPoint/FoodIcon.texture = load("res://03_Icone_EXPORT_ROTARY/" + acceptable_id + "_icona.png")
 	$FinishingPoint/FoodIcon.rotation_degrees = sprite_rotation
 	$FinishingPoint/ArrivedFoodSprite.rotation_degrees = sprite_rotation
+	for food in food_res.food_ids:
+		if food != acceptable_id:
+			new_food_array.append(food)
 
 
 func spawn_food():
@@ -36,8 +41,6 @@ func spawn_food():
 		else:
 			random_id = food_res.food_ids[randi() % food_res.food_ids.size()]
 	else:
-		var new_food_array = food_res.food_ids
-		new_food_array.erase(acceptable_id)
 		random_id = new_food_array[randi() % new_food_array.size()]
 	new_food.set_id(random_id)
 	new_food.set_sprite_rotation(sprite_rotation)

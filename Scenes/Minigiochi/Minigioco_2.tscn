@@ -10,6 +10,7 @@
 [ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_outro_EXPORT_ROTARY/Cutscenes_Outro_3.png" type="Texture" id=8]
 
 [node name="Minigioco_2" instance=ExtResource( 1 )]
+minigame_number = 2
 
 [node name="Sfondo_sotto" parent="." index="0"]
 texture = ExtResource( 2 )

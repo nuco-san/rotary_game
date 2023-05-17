@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sfondo_3_Fuoco.png-78ff5c0b055671fb795daae365e06e12.stex"
+path="res://.import/Fuoco2.png-e9fe194d8a3b466ce07ca85e375907ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://04_Sprite_EXPORT_ROTARY/Sfondo_3_Fuoco.png"
-dest_files=[ "res://.import/Sfondo_3_Fuoco.png-78ff5c0b055671fb795daae365e06e12.stex" ]
+source_file="res://04_Sprite_EXPORT_ROTARY/Fuoco2.png"
+dest_files=[ "res://.import/Fuoco2.png-e9fe194d8a3b466ce07ca85e375907ef.stex" ]
 
 [params]
 

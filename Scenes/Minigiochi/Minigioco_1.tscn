@@ -3,24 +3,10 @@
 [ext_resource path="res://Scenes/Minigioco.tscn" type="PackedScene" id=1]
 
 [node name="Minigioco_1" instance=ExtResource( 1 )]
+minigame_number = 1
 
-[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
-frame = 2
-
-[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
-frame = 2
-
-[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
-frame = 2
-
-[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
-frame = 2
-
-[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
-frame = 2
-
-[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
-frame = 2
+[node name="Fuoco" parent="Sfondo_sotto" index="0"]
+frame = 1
 
 [node name="FoodList" parent="UI" index="5"]
 margin_left = 1291.0

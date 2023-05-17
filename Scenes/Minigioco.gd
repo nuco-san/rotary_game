@@ -1,7 +1,10 @@
 extends Node2D
 
+export(int) var minigame_number
+
 var time_left
 var score := 0
+var is_doing_fire_sequence = false
 
 
 func _ready():
@@ -19,8 +22,13 @@ func _on_track_filled(correctly):
 		score += 1
 	else:
 		score -= 1
-	if score == 8:
-		reset_minigame()
+		if minigame_number == 3 and is_doing_fire_sequence:
+			stop_fire_sequence()
+	if score == 2:
+		if minigame_number == 3:
+			start_fire_sequence()
+		else:
+			reset_minigame()
 
 
 func _on_countdown_finished():
@@ -62,3 +70,26 @@ func stop_minigame():
 	$TrackManagerBottom.reset_tracks()
 	$TrackManagerRight.reset_tracks()
 	$TrackManagerTop.reset_tracks()
+
+
+func start_fire_sequence():
+	is_doing_fire_sequence = true
+	$Sfondo_sotto/Fuoco.show()
+	$FireTimer.start()
+	yield($FireTimer, "timeout")
+	reset_minigame()
+	$Sfondo_sotto/Fuoco.hide()
+	is_doing_fire_sequence = false
+
+
+func stop_fire_sequence():
+	is_doing_fire_sequence = false
+	$Sfondo_sotto/Fuoco.show()
+	$FireTimer.stop()
+	
+
+
+
+
+
+
