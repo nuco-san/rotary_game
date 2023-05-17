@@ -24,7 +24,7 @@ func _on_track_filled(correctly):
 		score -= 1
 		if minigame_number == 3 and is_doing_fire_sequence:
 			stop_fire_sequence()
-	if score == 2:
+	if score == 8:
 		if minigame_number == 3:
 			start_fire_sequence()
 		else:
@@ -86,6 +86,10 @@ func stop_fire_sequence():
 	is_doing_fire_sequence = false
 	$Sfondo_sotto/Fuoco.show()
 	$FireTimer.stop()
+	$TrackManagerLeft.reset_tracks_fire()
+	$TrackManagerBottom.reset_tracks_fire()
+	$TrackManagerRight.reset_tracks_fire()
+	$TrackManagerTop.reset_tracks_fire()
 	
 
 

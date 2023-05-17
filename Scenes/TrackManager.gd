@@ -48,3 +48,10 @@ func randomize_timer():
 	$Timer.wait_time = rand_range(spawn_time_interval.x, spawn_time_interval.y)
 
 
+func reset_tracks_fire():
+	$Timer.paused = true
+	$FoodTrack_1.reset_track()
+	$FoodTrack_2.reset_track()
+	yield(get_tree().create_timer(1.0), "timeout")
+	first_spawn()
+	$Timer.paused = false
