@@ -3,7 +3,8 @@ extends Node2D
 var minigame_duration := 60
 var current_minigame := 1
 var current_round := 1
-
+enum game_modes {STORY, SELECTION}
+var current_game_mode = game_modes.STORY
 
 signal track_filled
 signal timer_updated
@@ -14,12 +15,15 @@ signal untick_item
 
 func next_minigame():
 	current_round = 1
-	if current_minigame == 3:
+	if current_game_mode == game_modes.STORY:
+		if current_minigame == 3:
+			get_tree().change_scene("res://Scenes/TItleScreen.tscn")
+			current_minigame = 1
+		else:
+			current_minigame += 1
+			get_tree().change_scene("res://Scenes/Minigiochi/Minigioco_" + str(current_minigame) + ".tscn")
+	if current_game_mode == game_modes.SELECTION:
 		get_tree().change_scene("res://Scenes/TItleScreen.tscn")
-		current_minigame = 1
-	else:
-		current_minigame += 1
-		get_tree().change_scene("res://Scenes/Minigiochi/Minigioco_" + str(current_minigame) + ".tscn")
 
 
 func increase_round():

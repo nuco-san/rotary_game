@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hihat.mp3-3525c61d87c48890a46506aa257d7436.mp3str"
+
+[deps]
+
+source_file="res://SOund/hihat.mp3"
+dest_files=[ "res://.import/hihat.mp3-3525c61d87c48890a46506aa257d7436.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

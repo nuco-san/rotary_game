@@ -76,12 +76,14 @@ func _on_food_avoided():
 
 func _on_clear_button_pressed():
 	$ScaleAnimation.play("tap")
+	$TapSound.play()
 	number_of_clicks += 1
 	if number_of_clicks >= 5:
 		reset_clicks()
 		if is_filled_correctly:
 			is_filled_correctly = false
 			Global.emit_signal("track_filled", false)
+		$CrashSound.play()
 		$TransparencyAnimation.play("disappear")
 		yield($TransparencyAnimation, "animation_finished")
 		$FinishingPoint/ArrivedFoodSprite.modulate = Color.white
