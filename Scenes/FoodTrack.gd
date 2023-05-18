@@ -57,6 +57,8 @@ func spawn_food():
 
 func _on_destination_area_entered(area):
 	if acceptable_id == area.food_id:
+		if is_filled_correctly and Global.current_minigame == 3:
+			Global.emit_signal("too_much_food")
 		if not is_filled_correctly:
 			$CorrectSound.play()
 			$FinishingPoint/FoodBackgroundCorrect.show()

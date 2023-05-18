@@ -22,8 +22,9 @@ func _ready():
 
 
 func first_spawn():
+	$SpawnTimer.paused = false
 	randomize_timer()
-	$Timer.start()
+	$SpawnTimer.start()
 	track_1.spawn_food()
 
 
@@ -31,8 +32,8 @@ func _on_track_empty(id):
 	if not is_spawning:
 		is_spawning = true
 		randomize_timer()
-		$Timer.start()
-		yield($Timer, "timeout")
+		$SpawnTimer.start()
+		yield($SpawnTimer, "timeout")
 		if id == 1:
 			track_2.spawn_food()
 		if id == 2:
@@ -41,23 +42,23 @@ func _on_track_empty(id):
 
 
 func reset_tracks():
-	$Timer.paused = true
+	$SpawnTimer.paused = true
 	$FoodTrack_1.reset_track()
 	$FoodTrack_2.reset_track()
 
 
 func randomize_timer():
 	randomize()
-	$Timer.wait_time = rand_range(spawn_time_interval.x, spawn_time_interval.y)
+	$SpawnTimer.wait_time = rand_range(spawn_time_interval.x, spawn_time_interval.y)
 
 
 func reset_tracks_fire():
-	$Timer.paused = true
+	$SpawnTimer.paused = true
 	$FoodTrack_1.reset_track()
 	$FoodTrack_2.reset_track()
 	yield(get_tree().create_timer(1.0), "timeout")
 	first_spawn()
-	$Timer.paused = false
+	$SpawnTimer.paused = false
 
 
 func change_recipe():

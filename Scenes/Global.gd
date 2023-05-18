@@ -7,6 +7,7 @@ enum game_modes {STORY, SELECTION}
 var current_game_mode = game_modes.STORY
 
 signal track_filled
+signal too_much_food
 signal timer_updated
 signal round_updated
 signal tick_item

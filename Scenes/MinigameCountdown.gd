@@ -8,10 +8,18 @@ func _ready():
 	show()
 
 func start_countdown():
+	print(Global.current_round)
+	if Global.current_round > 1:
+		$YeahLabel.show()
+		$VBoxContainer.hide()
+		$YeahTimer.start()
+		yield($YeahTimer, "timeout")
+	$YeahLabel.hide()
+	$VBoxContainer.show()
 	$AudioStreamPlayer.play()
 	$VBoxContainer/RoundLabel.text = "Round " + str(Global.current_round)
 	countdown_time = 3
-	$Timer.start()
+	$CountdownTimer.start()
 
 
 func _on_Timer_timeout():
@@ -20,7 +28,7 @@ func _on_Timer_timeout():
 	if countdown_time == 0:
 		hide()
 		$VBoxContainer/CounterLabel.text = str(3)
-		$Timer.stop()
+		$CountdownTimer.stop()
 		emit_signal("countdown_finished")
 	else:
 		$AudioStreamPlayer.play()

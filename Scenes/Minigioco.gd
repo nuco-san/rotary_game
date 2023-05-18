@@ -6,7 +6,7 @@ var time_left
 var score := 0
 var is_doing_fire_sequence = false
 var fire_time_left = 5
-
+var wanted_score := 2
 
 func _ready():
 	time_left = Global.minigame_duration
@@ -25,11 +25,16 @@ func _on_track_filled(correctly):
 		score -= 1
 		if minigame_number == 3 and is_doing_fire_sequence:
 			stop_fire_sequence()
-	if score == 2:
+	if score == wanted_score:
 		if minigame_number == 3:
 			start_fire_sequence()
 		else:
 			reset_minigame()
+
+
+func _on_too_much_food():
+	if minigame_number == 3 and score == wanted_score:
+		stop_fire_sequence()
 
 
 func _on_countdown_finished():
@@ -50,6 +55,7 @@ func _on_LevelTimer_timeout():
 
 
 func reset_minigame():
+	Global.increase_round()
 	stop_minigame()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.start_countdown()
@@ -70,7 +76,6 @@ func reset_minigame():
 			$UI/FoodList.init_list()
 
 
-
 func _on_results_read():
 	$OutroSlides.show()
 
@@ -81,7 +86,6 @@ func load_next_minigame():
 
 func stop_minigame():
 	yield(get_tree().create_timer(0.2), "timeout")
-	Global.increase_round()
 	score = 0
 	$TrackManagerLeft.reset_tracks()
 	$TrackManagerBottom.reset_tracks()
