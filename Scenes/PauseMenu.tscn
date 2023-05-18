@@ -35,18 +35,21 @@ shape = SubResource( 1 )
 position = Vector2( 1749, 1033 )
 shape = SubResource( 1 )
 
-[node name="PauseMenuPanel" type="Control" parent="."]
+[node name="PauseMenuPanel" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+
+[node name="Control" type="Control" parent="PauseMenuPanel"]
+margin_right = 1920.0
+margin_bottom = 1200.0
 rect_min_size = Vector2( 1920, 1200 )
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenuPanel"]
+[node name="ColorRect" type="ColorRect" parent="PauseMenuPanel/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Title" type="Label" parent="PauseMenuPanel"]
+[node name="Title" type="Label" parent="PauseMenuPanel/Control"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -672.0
@@ -58,7 +61,7 @@ text = "Pausa"
 align = 1
 valign = 1
 
-[node name="PauseMenuButton" type="Button" parent="PauseMenuPanel"]
+[node name="PauseMenuButton" type="Button" parent="PauseMenuPanel/Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -77,4 +80,4 @@ text = "Riprendi"
 [connection signal="pressed" from="PauseMenuButton3" to="." method="pause_button_pressed"]
 [connection signal="pressed" from="PauseMenuButton4" to="." method="pause_button_pressed"]
 [connection signal="released" from="PauseMenuButton4" to="." method="pause_button_released"]
-[connection signal="pressed" from="PauseMenuPanel/PauseMenuButton" to="." method="resume"]
+[connection signal="pressed" from="PauseMenuPanel/Control/PauseMenuButton" to="." method="resume"]
