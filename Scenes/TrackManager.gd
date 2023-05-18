@@ -12,6 +12,9 @@ var track_2_empty = false
 
 var is_spawning = false
 
+export(Resource) var minigame3_recipe_1
+export(Resource) var minigame3_recipe_2
+
 
 func _ready():
 	track_1.connect("track_empty", self, "_on_track_empty")
@@ -55,3 +58,24 @@ func reset_tracks_fire():
 	yield(get_tree().create_timer(1.0), "timeout")
 	first_spawn()
 	$Timer.paused = false
+
+
+func change_recipe():
+	if Global.current_round % 2 == 0:
+		$FoodTrack_1.food_res = minigame3_recipe_1
+		$FoodTrack_1.acceptable_id = $FoodTrack_1.acceptable_id_original
+		$FoodTrack_1.init_icon()
+		$FoodTrack_2.food_res = minigame3_recipe_1
+		$FoodTrack_2.acceptable_id = $FoodTrack_2.acceptable_id_original
+		$FoodTrack_2.init_icon()
+	if Global.current_round % 2 == 1:
+		$FoodTrack_1.food_res = minigame3_recipe_2
+		$FoodTrack_1.acceptable_id = $FoodTrack_1.acceptable_id_alt
+		$FoodTrack_1.init_icon()
+		$FoodTrack_2.food_res = minigame3_recipe_2
+		$FoodTrack_2.acceptable_id = $FoodTrack_2.acceptable_id_alt
+		$FoodTrack_2.init_icon()
+
+
+
+

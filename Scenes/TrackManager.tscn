@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/FoodTrack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/TrackManager.gd" type="Script" id=2]
+[ext_resource path="res://frittata_foods.tres" type="Resource" id=3]
+[ext_resource path="res://sorrentina_foods.tres" type="Resource" id=4]
 
 [node name="TrackManager" type="Node2D"]
 script = ExtResource( 2 )
 track_1_path = NodePath("FoodTrack_1")
 track_2_path = NodePath("FoodTrack_2")
 spawn_time_interval = Vector2( 0.2, 1.5 )
+minigame3_recipe_1 = ExtResource( 4 )
+minigame3_recipe_2 = ExtResource( 3 )
 
 [node name="FoodTrack_1" parent="." instance=ExtResource( 1 )]
 track_id = 1

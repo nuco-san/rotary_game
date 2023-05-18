@@ -9,6 +9,8 @@ onready var finishing_point : Position2D = get_node(finishing_point_path)
 
 export(Resource) var food_res
 export(String) var acceptable_id
+var acceptable_id_original
+export(String) var acceptable_id_alt
 
 export(float) var sprite_rotation = 0.0
 
@@ -21,12 +23,17 @@ var new_food_array = []
 
 
 func _ready():
-	$FinishingPoint/FoodIcon.texture = load("res://03_Icone_EXPORT_ROTARY/" + acceptable_id + "_icona.png")
+	acceptable_id_original = acceptable_id
+	init_icon()
 	$FinishingPoint/FoodIcon.rotation_degrees = sprite_rotation
 	$FinishingPoint/ArrivedFoodSprite.rotation_degrees = sprite_rotation
 	for food in food_res.food_ids:
 		if food != acceptable_id:
 			new_food_array.append(food)
+
+
+func init_icon():
+	$FinishingPoint/FoodIcon.texture = load("res://03_Icone_EXPORT_ROTARY/" + acceptable_id + "_icona.png")
 
 
 func spawn_food():

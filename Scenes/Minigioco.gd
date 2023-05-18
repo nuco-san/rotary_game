@@ -25,7 +25,7 @@ func _on_track_filled(correctly):
 		score -= 1
 		if minigame_number == 3 and is_doing_fire_sequence:
 			stop_fire_sequence()
-	if score == 8:
+	if score == 2:
 		if minigame_number == 3:
 			start_fire_sequence()
 		else:
@@ -53,6 +53,22 @@ func reset_minigame():
 	stop_minigame()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.start_countdown()
+	if minigame_number == 3:
+		$TrackManagerLeft.change_recipe()
+		$TrackManagerBottom.change_recipe()
+		$TrackManagerRight.change_recipe()
+		$TrackManagerTop.change_recipe()
+		if Global.current_round % 2 == 0:
+			$UI/FoodList.title = "Gnocchi alla sorrentina"
+			$UI/FoodList.foods_res = load("res://sorrentina_foods.tres")
+			$UI/FoodList.clear_list()
+			$UI/FoodList.init_list()
+		if Global.current_round % 2 == 1:
+			$UI/FoodList.title = "Frittata colorata"
+			$UI/FoodList.foods_res = load("res://frittata_foods.tres")
+			$UI/FoodList.clear_list()
+			$UI/FoodList.init_list()
+
 
 
 func _on_results_read():
@@ -95,19 +111,22 @@ func complete_fire_sequence():
 	$UI/FireTimerLabel.hide()
 	is_doing_fire_sequence = false
 	$Sfondo_sotto/Fuoco/FireSound.stop()
+	$FireTimer.stop()
+	score = 0
 
 
 func stop_fire_sequence():
+	fire_time_left = 5
+	$UI/FireTimerLabel.text = str(fire_time_left)
 	$Sfondo_sotto/Fuoco/FireSound.stop()
 	is_doing_fire_sequence = false
-	$Sfondo_sotto/Fuoco.show()
+	$Sfondo_sotto/Fuoco.hide()
 	$FireTimer.stop()
 	$TrackManagerLeft.reset_tracks_fire()
 	$TrackManagerBottom.reset_tracks_fire()
 	$TrackManagerRight.reset_tracks_fire()
 	$TrackManagerTop.reset_tracks_fire()
-
-
+	score = 0
 
 
 

@@ -1,26 +1,23 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Cutscenes_intro_EXPORT_ROTARY/Cutscenes_Intro_1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/MinigameSlides.gd" type="Script" id=3]
-
-[sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = ExtResource( 2 )
 
 [node name="MinigameSlides" type="Sprite"]
 position = Vector2( 961, 601 )
+texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
-[node name="Button" type="Button" parent="."]
+[node name="UIButton" parent="." instance=ExtResource( 2 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1237.0
-margin_top = -715.0
-margin_right = -984.0
-margin_bottom = -624.0
-custom_fonts/font = SubResource( 2 )
+margin_left = -1324.0
+margin_top = -731.0
+margin_right = -1002.0
+margin_bottom = -652.0
 text = "AVANTI"
 
-[connection signal="pressed" from="Button" to="." method="next_slide"]
+[connection signal="button_pressed" from="UIButton" to="." method="next_slide"]
