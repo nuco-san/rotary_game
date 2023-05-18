@@ -2,14 +2,11 @@
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/TItleScreen.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/LevelSelectionButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UIButtonLevelSelection.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 40
 font_data = ExtResource( 1 )
 
 [node name="TItleScreen" type="Control"]
@@ -45,18 +42,14 @@ margin_right = 288.0
 margin_bottom = -412.0
 custom_constants/separation = 32
 
-[node name="StoryModeButton" type="Button" parent="MainButtons"]
-margin_right = 576.0
-margin_bottom = 48.0
-custom_fonts/font = SubResource( 2 )
-text = "Modalità Storia"
+[node name="StoryModeButton" parent="MainButtons" instance=ExtResource( 4 )]
+margin_bottom = 79.0
+text = "MODALITÀ STORIA"
 
-[node name="LevelSelectionButton" type="Button" parent="MainButtons"]
-margin_top = 80.0
-margin_right = 576.0
-margin_bottom = 128.0
-custom_fonts/font = SubResource( 2 )
-text = "Selezione dei livelli"
+[node name="LevelSelectionButton" parent="MainButtons" instance=ExtResource( 4 )]
+margin_top = 111.0
+margin_bottom = 190.0
+text = "SELEZIONE MINIGIOCHI"
 
 [node name="LevelSelectionButtons" type="VBoxContainer" parent="."]
 visible = false
@@ -64,37 +57,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = 25.0
-margin_right = 128.0
-margin_bottom = 206.0
+margin_left = -288.0
+margin_top = -40.0
+margin_right = 288.0
+margin_bottom = 257.0
 custom_constants/separation = 30
 
-[node name="BottoneMinigioco_1" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
+[node name="UIButtonLevelSelection1" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
+margin_bottom = 79.0
+text = "MINIGIOCO 1"
 minigame_number = 1
 
-[node name="BottoneMinigioco_2" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
-margin_top = 52.0
-margin_bottom = 100.0
-text = "Minigioco 2"
+[node name="UIButtonLevelSelection2" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
+margin_top = 109.0
+margin_bottom = 188.0
+text = "MINIGIOCO 2"
 minigame_number = 2
 
-[node name="BottoneMinigioco_3" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
-margin_top = 104.0
-margin_bottom = 152.0
-text = "Minigioco 3"
+[node name="UIButtonLevelSelection3" parent="LevelSelectionButtons" instance=ExtResource( 3 )]
+margin_top = 218.0
+margin_bottom = 297.0
+text = "MINIGIOCO 3"
 minigame_number = 3
 
-[node name="LevelSelectionButton" type="Button" parent="LevelSelectionButtons"]
-margin_top = 156.0
-margin_right = 256.0
-margin_bottom = 204.0
-custom_fonts/font = SubResource( 2 )
+[node name="BackButton" parent="LevelSelectionButtons" instance=ExtResource( 4 )]
+margin_top = 327.0
+margin_bottom = 406.0
 text = "INDIETRO"
 
-[connection signal="pressed" from="MainButtons/StoryModeButton" to="." method="start_story_mode"]
-[connection signal="pressed" from="MainButtons/LevelSelectionButton" to="." method="show_level_selection"]
-[connection signal="minigame_selected" from="LevelSelectionButtons/BottoneMinigioco_1" to="." method="start_selected_minigame"]
-[connection signal="minigame_selected" from="LevelSelectionButtons/BottoneMinigioco_2" to="." method="start_selected_minigame"]
-[connection signal="minigame_selected" from="LevelSelectionButtons/BottoneMinigioco_3" to="." method="start_selected_minigame"]
-[connection signal="pressed" from="LevelSelectionButtons/LevelSelectionButton" to="." method="hide_level_selection"]
+[connection signal="button_pressed" from="MainButtons/StoryModeButton" to="." method="start_story_mode"]
+[connection signal="button_pressed" from="MainButtons/LevelSelectionButton" to="." method="show_level_selection"]
+[connection signal="minigame_selected" from="LevelSelectionButtons/UIButtonLevelSelection1" to="." method="start_selected_minigame"]
+[connection signal="minigame_selected" from="LevelSelectionButtons/UIButtonLevelSelection2" to="." method="start_selected_minigame"]
+[connection signal="minigame_selected" from="LevelSelectionButtons/UIButtonLevelSelection3" to="." method="start_selected_minigame"]
+[connection signal="button_pressed" from="LevelSelectionButtons/BackButton" to="." method="hide_level_selection"]

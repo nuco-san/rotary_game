@@ -131,7 +131,6 @@ visible = false
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 2
 speed_scale = 1.4
 playing = true
 
@@ -164,11 +163,11 @@ volume_db = -7.0
 
 [node name="TapSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -16.0
+volume_db = -26.0
 
 [node name="CrashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -5.0
+volume_db = -10.0
 
 [connection signal="area_entered" from="FinishingPoint/DestinationArea" to="." method="_on_destination_area_entered"]
 [connection signal="pressed" from="FinishingPoint/ClearButton" to="." method="_on_clear_button_pressed"]
