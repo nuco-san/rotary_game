@@ -5,6 +5,7 @@ export(int) var minigame_number
 var time_left
 var score := 0
 var is_doing_fire_sequence = false
+var fire_time_left = 5
 
 
 func _ready():
@@ -74,15 +75,30 @@ func stop_minigame():
 
 func start_fire_sequence():
 	is_doing_fire_sequence = true
+	$Sfondo_sotto/Fuoco/FireSound.play()
 	$Sfondo_sotto/Fuoco.show()
 	$FireTimer.start()
-	yield($FireTimer, "timeout")
+	$UI/FireTimerLabel.show()
+
+
+func _on_FireTimer_timeout():
+	fire_time_left -= 1
+	$UI/FireTimerLabel.text = str(fire_time_left)
+	if fire_time_left <= 0:
+		complete_fire_sequence()
+
+
+func complete_fire_sequence():
+	fire_time_left = 5
 	reset_minigame()
 	$Sfondo_sotto/Fuoco.hide()
+	$UI/FireTimerLabel.hide()
 	is_doing_fire_sequence = false
+	$Sfondo_sotto/Fuoco/FireSound.stop()
 
 
 func stop_fire_sequence():
+	$Sfondo_sotto/Fuoco/FireSound.stop()
 	is_doing_fire_sequence = false
 	$Sfondo_sotto/Fuoco.show()
 	$FireTimer.stop()
@@ -90,7 +106,6 @@ func stop_fire_sequence():
 	$TrackManagerBottom.reset_tracks_fire()
 	$TrackManagerRight.reset_tracks_fire()
 	$TrackManagerTop.reset_tracks_fire()
-	
 
 
 

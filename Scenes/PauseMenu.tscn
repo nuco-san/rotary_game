@@ -2,16 +2,13 @@
 
 [ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 70.0
 
 [sub_resource type="DynamicFont" id=2]
 size = 76
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
 font_data = ExtResource( 2 )
 
 [node name="PauseMenu" type="Node2D"]
@@ -61,17 +58,16 @@ text = "Pausa"
 align = 1
 valign = 1
 
-[node name="PauseMenuButton" type="Button" parent="PauseMenuPanel/Control"]
+[node name="UIButton" parent="PauseMenuPanel/Control" instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -288.0
-margin_top = -24.0
+margin_top = -39.5
 margin_right = 288.0
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 3 )
-text = "Riprendi"
+margin_bottom = 39.5
+text = "RIPRENDI"
 
 [connection signal="pressed" from="PauseMenuButton1" to="." method="pause_button_pressed"]
 [connection signal="released" from="PauseMenuButton1" to="." method="pause_button_released"]
@@ -80,4 +76,4 @@ text = "Riprendi"
 [connection signal="pressed" from="PauseMenuButton3" to="." method="pause_button_pressed"]
 [connection signal="pressed" from="PauseMenuButton4" to="." method="pause_button_pressed"]
 [connection signal="released" from="PauseMenuButton4" to="." method="pause_button_released"]
-[connection signal="pressed" from="PauseMenuPanel/Control/PauseMenuButton" to="." method="resume"]
+[connection signal="button_pressed" from="PauseMenuPanel/Control/UIButton" to="." method="resume"]

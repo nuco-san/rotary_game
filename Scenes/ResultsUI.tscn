@@ -2,6 +2,7 @@
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/ResultsUI.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76
@@ -10,10 +11,6 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 200
 extra_spacing_bottom = -32
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
 font_data = ExtResource( 1 )
 
 [node name="ResultsUI" type="Control"]
@@ -66,16 +63,15 @@ text = "pasti"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="UIButton" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -126.5
-margin_top = -217.0
-margin_right = 126.5
-margin_bottom = -126.0
-custom_fonts/font = SubResource( 3 )
+margin_left = -288.0
+margin_top = -234.0
+margin_right = 288.0
+margin_bottom = -155.0
 text = "PROSEGUI"
 
-[connection signal="pressed" from="Button" to="." method="close_results"]
+[connection signal="button_pressed" from="UIButton" to="." method="close_results"]
