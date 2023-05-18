@@ -15,9 +15,6 @@ minigame_number = 3
 [node name="Sfondo_sotto" parent="." index="0"]
 texture = ExtResource( 3 )
 
-[node name="Fuoco" parent="Sfondo_sotto" index="0"]
-frame = 0
-
 [node name="TrackManagerLeft" parent="." index="1"]
 position = Vector2( 124, 546 )
 
@@ -28,12 +25,18 @@ acceptable_id = "Gnocchi"
 [node name="FinishingPoint" parent="TrackManagerLeft/FoodTrack_1" index="0"]
 position = Vector2( 672, -6 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_1/FinishingPoint" index="3"]
+frame = 1
+
 [node name="FoodTrack_2" parent="TrackManagerLeft" index="1"]
 food_res = ExtResource( 4 )
 acceptable_id = "Gnocchi"
 
 [node name="FinishingPoint" parent="TrackManagerLeft/FoodTrack_2" index="0"]
 position = Vector2( 672, -7 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerLeft/FoodTrack_2/FinishingPoint" index="3"]
+frame = 1
 
 [node name="TrackManagerBottom" parent="." index="2"]
 position = Vector2( 897, 1264 )
@@ -45,12 +48,18 @@ acceptable_id = "Mozzarella"
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_1" index="0"]
 position = Vector2( 11, -592 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 food_res = ExtResource( 4 )
 acceptable_id = "Mozzarella"
 
 [node name="FinishingPoint" parent="TrackManagerBottom/FoodTrack_2" index="0"]
 position = Vector2( 5, -591 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
 
 [node name="TrackManagerRight" parent="." index="3"]
 position = Vector2( 1797, 546 )
@@ -62,12 +71,18 @@ acceptable_id = "Basilico"
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_1" index="0"]
 position = Vector2( -665, -6 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 food_res = ExtResource( 4 )
 acceptable_id = "Basilico"
 
 [node name="FinishingPoint" parent="TrackManagerRight/FoodTrack_2" index="0"]
 position = Vector2( -665, -7 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
 
 [node name="TrackManagerTop" parent="." index="4"]
 position = Vector2( 897, -34 )
@@ -79,11 +94,17 @@ acceptable_id = "Pomodoro"
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_1" index="0"]
 position = Vector2( 11, 574 )
 
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
+frame = 2
+
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 food_res = ExtResource( 4 )
 
 [node name="FinishingPoint" parent="TrackManagerTop/FoodTrack_2" index="0"]
 position = Vector2( 6, 576 )
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
+frame = 2
 
 [node name="Sfondo_sopra" parent="." index="5"]
 texture = ExtResource( 2 )

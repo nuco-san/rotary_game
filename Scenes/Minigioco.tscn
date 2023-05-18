@@ -39,7 +39,6 @@ __meta__ = {
 visible = false
 position = Vector2( -7, -25 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="TrackManagerLeft" parent="." instance=ExtResource( 3 )]

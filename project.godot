@@ -26,6 +26,7 @@ run/main_scene="res://Scenes/TItleScreen.tscn"
 [autoload]
 
 Global="*res://Scenes/Global.tscn"
+PauseMenu="*res://Scenes/PauseMenu.tscn"
 
 [display]
 
