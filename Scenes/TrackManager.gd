@@ -76,6 +76,6 @@ func _on_SpawnTimer_timeout():
 		track_1.spawn_food()
 
 
-func increase_right_spawn_probability():
+func increase_spawn_probability():
 	$FoodTrack_1.increase_right_spawn_probabilty()
 	$FoodTrack_2.increase_right_spawn_probabilty()

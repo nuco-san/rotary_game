@@ -117,6 +117,7 @@ func reset_clicks():
 
 
 func reset_track():
+	is_filled = false
 	is_filled_correctly = false
 	number_of_clicks = 0
 	correct_spawn_probabilty = correct_spawn_probability_min

@@ -3,16 +3,15 @@ extends Node2D
 export(int) var minigame_number
 
 var time_left
-var score := 0
+var correct_foods := 0
+var correct_foods_goal := 3
 var is_doing_fire_sequence = false
 var fire_time_left = 5
-var wanted_score := 8
 
 
 func _ready():
 	time_left = Global.minigame_duration
 	Global.connect("track_filled", self, "_on_track_filled")
-	$ResultsUI.connect("results_read", self, "_on_results_read")
 
 
 func start_minigame():
@@ -21,14 +20,14 @@ func start_minigame():
 
 func _on_track_filled(correctly):
 	if correctly:
-		score += 1
-		if score == wanted_score - 1:
+		correct_foods += 1
+		if correct_foods == correct_foods_goal - 1:
 			increase_right_spawn_probability()
 	else:
-		score -= 1
+		correct_foods -= 1
 		if minigame_number == 3 and is_doing_fire_sequence:
 			stop_fire_sequence()
-	if score == wanted_score:
+	if correct_foods == correct_foods_goal:
 		if minigame_number == 3:
 			start_fire_sequence()
 		else:
@@ -36,7 +35,7 @@ func _on_track_filled(correctly):
 
 
 func _on_too_much_food():
-	if minigame_number == 3 and score == wanted_score:
+	if minigame_number == 3 and correct_foods == correct_foods_goal:
 		stop_fire_sequence()
 
 
@@ -54,7 +53,11 @@ func _on_LevelTimer_timeout():
 	if time_left <= 0:
 		stop_minigame()
 		$LevelTimer.stop()
-		$ResultsUI.show()
+		$UI/TimeOut.show()
+		$UI/TimeOut/TimeOutTimer.start()
+		yield($UI/TimeOut/TimeOutTimer, "timeout")
+		$UI/TimeOut.hide()
+		$OutroSlides.show()
 
 
 func reset_minigame():
@@ -81,16 +84,17 @@ func reset_minigame():
 
 
 func _on_results_read():
-	$OutroSlides.show()
-
-
-func load_next_minigame():
 	Global.next_minigame()
+
+
+func _on_outro_slides_read():
+	$Totalizzatore.show()
+	$Totalizzatore.init_animations()
 
 
 func stop_minigame():
 	yield(get_tree().create_timer(0.2), "timeout")
-	score = 0
+	correct_foods = 0
 	$TrackManagerLeft.reset_tracks()
 	$TrackManagerBottom.reset_tracks()
 	$TrackManagerRight.reset_tracks()
@@ -120,7 +124,7 @@ func complete_fire_sequence():
 	is_doing_fire_sequence = false
 	$Sfondo_sotto/Fuoco/FireSound.stop()
 	$FireTimer.stop()
-	score = 0
+	correct_foods = 0
 
 
 func stop_fire_sequence():
@@ -136,12 +140,12 @@ func stop_fire_sequence():
 	$TrackManagerBottom.reset_tracks_fire()
 	$TrackManagerRight.reset_tracks_fire()
 	$TrackManagerTop.reset_tracks_fire()
-	score = 0
+	correct_foods = 0
 
 
 func increase_right_spawn_probability():
-	$TrackManagerLeft.reset_tracks()
-	$TrackManagerBottom.reset_tracks()
-	$TrackManagerRight.reset_tracks()
-	$TrackManagerTop.reset_tracks()
+	$TrackManagerLeft.increase_spawn_probability()
+	$TrackManagerBottom.increase_spawn_probability()
+	$TrackManagerRight.increase_spawn_probability()
+	$TrackManagerTop.increase_spawn_probability()
 

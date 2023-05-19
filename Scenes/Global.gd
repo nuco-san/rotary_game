@@ -1,10 +1,13 @@
 extends Node2D
 
-var minigame_duration := 60
+var minigame_duration := 10
 var current_minigame := 1
 var current_round := 1
 enum game_modes {STORY, SELECTION}
 var current_game_mode = game_modes.STORY
+var total_score = 19
+var partial_score = 3
+
 
 signal track_filled
 signal too_much_food
@@ -30,6 +33,7 @@ func next_minigame():
 
 func increase_round():
 	current_round += 1
+	partial_score += 1
 
 
 func load_minigame(number):
@@ -37,5 +41,7 @@ func load_minigame(number):
 	current_minigame = number
 
 
-
+func update_total_score():
+	total_score += partial_score
+	partial_score = 0
 
