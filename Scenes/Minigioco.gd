@@ -6,7 +6,7 @@ var time_left
 var score := 0
 var is_doing_fire_sequence = false
 var fire_time_left = 5
-var wanted_score := 2
+var wanted_score := 8
 
 func _ready():
 	time_left = Global.minigame_duration

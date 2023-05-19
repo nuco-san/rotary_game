@@ -85,6 +85,14 @@ margin_top = 327.0
 margin_bottom = 406.0
 text = "INDIETRO"
 
+[node name="Label" type="Label" parent="."]
+margin_left = 51.0
+margin_top = 40.0
+margin_right = 91.0
+margin_bottom = 54.0
+rect_scale = Vector2( 3, 3 )
+text = "v. 0.1"
+
 [connection signal="button_pressed" from="MainButtons/StoryModeButton" to="." method="start_story_mode"]
 [connection signal="button_pressed" from="MainButtons/LevelSelectionButton" to="." method="show_level_selection"]
 [connection signal="minigame_selected" from="LevelSelectionButtons/UIButtonLevelSelection1" to="." method="start_selected_minigame"]

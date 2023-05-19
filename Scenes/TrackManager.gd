@@ -11,6 +11,7 @@ var track_1_empty = false
 var track_2_empty = false
 
 var is_spawning = false
+var next_spawn_track := 0
 
 export(Resource) var minigame3_recipe_1
 export(Resource) var minigame3_recipe_2
@@ -22,7 +23,6 @@ func _ready():
 
 
 func first_spawn():
-	$SpawnTimer.paused = false
 	randomize_timer()
 	$SpawnTimer.start()
 	track_1.spawn_food()
@@ -31,18 +31,14 @@ func first_spawn():
 func _on_track_empty(id):
 	if not is_spawning:
 		is_spawning = true
+		next_spawn_track = id
 		randomize_timer()
 		$SpawnTimer.start()
-		yield($SpawnTimer, "timeout")
-		if id == 1:
-			track_2.spawn_food()
-		if id == 2:
-			track_1.spawn_food()
-		is_spawning = false
+
 
 
 func reset_tracks():
-	$SpawnTimer.paused = true
+	$SpawnTimer.stop()
 	$FoodTrack_1.reset_track()
 	$FoodTrack_2.reset_track()
 
@@ -53,12 +49,11 @@ func randomize_timer():
 
 
 func reset_tracks_fire():
-	$SpawnTimer.paused = true
+	$SpawnTimer.stop()
 	$FoodTrack_1.reset_track()
 	$FoodTrack_2.reset_track()
 	yield(get_tree().create_timer(1.0), "timeout")
 	first_spawn()
-	$SpawnTimer.paused = false
 
 
 func change_recipe():
@@ -78,5 +73,9 @@ func change_recipe():
 		$FoodTrack_2.init_icon()
 
 
-
-
+func _on_SpawnTimer_timeout():
+	if next_spawn_track == 1:
+		track_2.spawn_food()
+	if next_spawn_track == 2:
+		track_1.spawn_food()
+	is_spawning = false
