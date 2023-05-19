@@ -14,6 +14,7 @@ signal tick_item
 signal untick_item
 
 
+
 func next_minigame():
 	current_round = 1
 	if current_game_mode == game_modes.STORY:

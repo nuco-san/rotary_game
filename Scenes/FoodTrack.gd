@@ -17,12 +17,17 @@ export(float) var sprite_rotation = 0.0
 var time_since_last_click : float = 0.0
 var number_of_clicks : int = 0
 
+var is_filled = false
 var is_filled_correctly = false
 var new_food_array = []
 
+var correct_spawn_probability_min = 0.2
+var correct_spawn_probability_max = 0.4
+var correct_spawn_probabilty
 
 
 func _ready():
+	correct_spawn_probabilty = correct_spawn_probability_min
 	acceptable_id_original = acceptable_id
 	init_icon()
 	$FinishingPoint/FoodIcon.rotation_degrees = sprite_rotation
@@ -43,7 +48,7 @@ func spawn_food():
 	var random_value = rand_range(0.0, 1.0)
 	var random_id
 	if is_filled_correctly == false:
-		if random_value <= 0.2:
+		if random_value <= correct_spawn_probabilty:
 			random_id = acceptable_id
 		else:
 			random_id = food_res.food_ids[randi() % food_res.food_ids.size()]
@@ -56,25 +61,29 @@ func spawn_food():
 
 
 func _on_destination_area_entered(area):
-	if acceptable_id == area.food_id:
-		if is_filled_correctly and Global.current_minigame == 3:
-			Global.emit_signal("too_much_food")
-		if not is_filled_correctly:
-			$CorrectSound.play()
-			$FinishingPoint/FoodBackgroundCorrect.show()
-			$FinishingPoint/FoodBackgroundWrong.hide()
-			is_filled_correctly = true
-			Global.emit_signal("track_filled", true)
-			Global.emit_signal("tick_item", acceptable_id)
-	else:
-		$WrongSound.play()
-		$FinishingPoint/FoodBackgroundCorrect.hide()
-		$FinishingPoint/FoodBackgroundWrong.show()
-		if is_filled_correctly:
-			is_filled_correctly = false
-			Global.emit_signal("track_filled", false)
-			Global.emit_signal("untick_item", acceptable_id)
-	$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
+	if is_filled == false or is_filled_correctly == true:
+		if acceptable_id == area.food_id:
+			if is_filled_correctly and Global.current_minigame == 3:
+				Global.emit_signal("too_much_food")
+			else:
+				is_filled = true
+				is_filled_correctly = true
+				$CorrectSound.play()
+				$FinishingPoint/FoodBackgroundCorrect.show()
+				$FinishingPoint/FoodBackgroundWrong.hide()
+				Global.emit_signal("track_filled", true)
+				Global.emit_signal("tick_item", acceptable_id)
+				$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
+		if acceptable_id != area.food_id:
+			is_filled = true
+			$WrongSound.play()
+			$FinishingPoint/FoodBackgroundCorrect.hide()
+			$FinishingPoint/FoodBackgroundWrong.show()
+			$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
+			if is_filled_correctly:
+				is_filled_correctly = false
+				Global.emit_signal("track_filled", false)
+				Global.emit_signal("untick_item", acceptable_id)
 	emit_signal("track_empty", track_id)
 	area.destroy_arrive()
 
@@ -89,6 +98,7 @@ func _on_clear_button_pressed():
 	number_of_clicks += 1
 	if number_of_clicks >= 5:
 		reset_clicks()
+		is_filled = false
 		if is_filled_correctly:
 			is_filled_correctly = false
 			Global.emit_signal("track_filled", false)
@@ -109,6 +119,7 @@ func reset_clicks():
 func reset_track():
 	is_filled_correctly = false
 	number_of_clicks = 0
+	correct_spawn_probabilty = correct_spawn_probability_min
 	$ClearButtonTimer.stop()
 	for food in $FoodContainer.get_children():
 		food.queue_free()
@@ -117,5 +128,7 @@ func reset_track():
 	$FinishingPoint/ArrivedFoodSprite.texture = null
 
 
-
+func increase_right_spawn_probabilty():
+	if not is_filled_correctly:
+		correct_spawn_probabilty = correct_spawn_probability_max
 

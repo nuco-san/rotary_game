@@ -8,6 +8,7 @@ var is_doing_fire_sequence = false
 var fire_time_left = 5
 var wanted_score := 8
 
+
 func _ready():
 	time_left = Global.minigame_duration
 	Global.connect("track_filled", self, "_on_track_filled")
@@ -21,6 +22,8 @@ func start_minigame():
 func _on_track_filled(correctly):
 	if correctly:
 		score += 1
+		if score == wanted_score - 1:
+			increase_right_spawn_probability()
 	else:
 		score -= 1
 		if minigame_number == 3 and is_doing_fire_sequence:
@@ -136,5 +139,9 @@ func stop_fire_sequence():
 	score = 0
 
 
-
+func increase_right_spawn_probability():
+	$TrackManagerLeft.reset_tracks()
+	$TrackManagerBottom.reset_tracks()
+	$TrackManagerRight.reset_tracks()
+	$TrackManagerTop.reset_tracks()
 
