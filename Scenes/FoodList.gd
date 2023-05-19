@@ -33,3 +33,7 @@ func init_list():
 		var new_list_item = ListItem.instance()
 		new_list_item.item_name = food
 		$VBoxContainer.add_child(new_list_item)
+
+func untick_all_items():
+	for item in $VBoxContainer.get_children():
+		item.untick()

@@ -91,7 +91,7 @@ margin_top = 40.0
 margin_right = 91.0
 margin_bottom = 54.0
 rect_scale = Vector2( 3, 3 )
-text = "v. 0.1"
+text = "v. 0.11"
 
 [connection signal="button_pressed" from="MainButtons/StoryModeButton" to="." method="start_story_mode"]
 [connection signal="button_pressed" from="MainButtons/LevelSelectionButton" to="." method="show_level_selection"]

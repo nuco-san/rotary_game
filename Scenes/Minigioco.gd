@@ -59,6 +59,7 @@ func reset_minigame():
 	stop_minigame()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.start_countdown()
+	$UI/FoodList.untick_all_items()
 	if minigame_number == 3:
 		$TrackManagerLeft.change_recipe()
 		$TrackManagerBottom.change_recipe()
@@ -120,6 +121,7 @@ func complete_fire_sequence():
 
 
 func stop_fire_sequence():
+	yield(get_tree().create_timer(0.2), "timeout")
 	fire_time_left = 5
 	$UI/FireTimerLabel.text = str(fire_time_left)
 	$Sfondo_sotto/Fuoco/FireSound.stop()
