@@ -8,14 +8,12 @@ position = Vector2( 961, 601 )
 script = ExtResource( 3 )
 
 [node name="UIButton" parent="." instance=ExtResource( 2 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -1121.5
-margin_top = -753.0
-margin_right = -799.5
-margin_bottom = -674.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1331.0
+margin_top = -556.0
+margin_right = -1009.0
+margin_bottom = -477.0
 text = "AVANTI"
 
 [connection signal="button_pressed" from="UIButton" to="." method="next_slide"]

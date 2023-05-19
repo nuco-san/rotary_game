@@ -72,7 +72,7 @@ acceptable_id = "Uova"
 position = Vector2( 8, -588 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 position = Vector2( 117, -1 )
@@ -82,7 +82,7 @@ acceptable_id = "Zucchina"
 position = Vector2( 7, -585 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="TrackManagerRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1797, 539 )
@@ -95,7 +95,7 @@ sprite_rotation = -90.0
 position = Vector2( -659, 0 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 position = Vector2( 0, 133 )
@@ -106,7 +106,7 @@ sprite_rotation = -90.0
 position = Vector2( -659, 0 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="TrackManagerTop" parent="." instance=ExtResource( 3 )]
 position = Vector2( 897, -41 )
@@ -119,7 +119,7 @@ sprite_rotation = 180.0
 position = Vector2( 8, 578 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 position = Vector2( 117, -1 )
@@ -130,10 +130,10 @@ sprite_rotation = 180.0
 position = Vector2( 7, 581 )
 
 [node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
-frame = 0
+frame = 1
 
 [node name="Sfondo_sopra" type="Sprite" parent="."]
-position = Vector2( 961, 610 )
+position = Vector2( 960, 607 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -229,10 +229,8 @@ margin_bottom = 524.0
 rect_rotation = 180.0
 
 [node name="MinigameCountdown" parent="UI" instance=ExtResource( 5 )]
-margin_left = -990.0
-margin_top = -623.0
-margin_right = 990.0
-margin_bottom = 641.0
+margin_top = 7.0
+margin_bottom = 7.0
 
 [node name="FoodList" parent="UI" instance=ExtResource( 11 )]
 margin_left = 1340.0

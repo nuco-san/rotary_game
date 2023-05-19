@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 
 signal countdown_finished
 
@@ -8,7 +8,6 @@ func _ready():
 	show()
 
 func start_countdown():
-	print(Global.current_round)
 	if Global.current_round > 1:
 		$YeahLabel.show()
 		$VBoxContainer.hide()
