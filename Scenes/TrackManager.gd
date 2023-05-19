@@ -10,7 +10,6 @@ export(Vector2) var spawn_time_interval
 var track_1_empty = false
 var track_2_empty = false
 
-var is_spawning = false
 var next_spawn_track := 0
 
 export(Resource) var minigame3_recipe_1
@@ -24,16 +23,13 @@ func _ready():
 
 func first_spawn():
 	randomize_timer()
-	$SpawnTimer.start()
 	track_1.spawn_food()
 
 
 func _on_track_empty(id):
-	if not is_spawning:
-		is_spawning = true
-		next_spawn_track = id
-		randomize_timer()
-		$SpawnTimer.start()
+	next_spawn_track = id
+	randomize_timer()
+	$SpawnTimer.start()
 
 
 
@@ -78,4 +74,3 @@ func _on_SpawnTimer_timeout():
 		track_2.spawn_food()
 	if next_spawn_track == 2:
 		track_1.spawn_food()
-	is_spawning = false
