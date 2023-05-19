@@ -6,7 +6,7 @@ var time_left
 var score := 0
 var is_doing_fire_sequence = false
 var fire_time_left = 5
-var wanted_score := 2
+var wanted_score := 8
 
 func _ready():
 	time_left = Global.minigame_duration
@@ -122,6 +122,7 @@ func complete_fire_sequence():
 
 func stop_fire_sequence():
 	yield(get_tree().create_timer(0.2), "timeout")
+	$UI/FoodList.untick_all_items()
 	fire_time_left = 5
 	$UI/FireTimerLabel.text = str(fire_time_left)
 	$Sfondo_sotto/Fuoco/FireSound.stop()
