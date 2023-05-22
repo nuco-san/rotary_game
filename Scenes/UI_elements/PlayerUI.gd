@@ -6,8 +6,7 @@ func _ready():
 	update_timer(Global.minigame_duration)
 	Global.connect("timer_updated", self, "update_timer")
 	Global.connect("round_updated", self, "update_round")
-	$PlayerLabel.text = "Player " + str(player_id)
-	
+	$PlayerLabel.text = "Player " + str(player_id)	
 
 
 func update_timer(time):
@@ -16,5 +15,5 @@ func update_timer(time):
 	$TimerLabel.text = str("%02d" % minutes) + ":" + str("%02d" % seconds)
 
 
-func update_round(_round):
-	$RoundContainer/RoundValue.text = str(_round)
+func update_round():
+	$RoundContainer/RoundValue.text = str(Global.current_round)

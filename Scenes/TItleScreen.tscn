@@ -68,7 +68,7 @@ margin_right = 297.0
 margin_bottom = 102.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Un gioco sul risparmio di cibo a tutti i costi"
+text = "Insieme contro lo spreco alimentare"
 align = 1
 valign = 1
 autowrap = true
@@ -173,7 +173,7 @@ margin_top = 40.0
 margin_right = 91.0
 margin_bottom = 54.0
 rect_scale = Vector2( 3, 3 )
-text = "v. 0.17"
+text = "v. 0.18"
 
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/StoryModeButton" to="." method="start_story_mode"]
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/LevelSelectionButton" to="." method="show_level_selection"]

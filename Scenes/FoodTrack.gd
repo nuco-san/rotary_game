@@ -71,9 +71,9 @@ func _on_destination_area_entered(area):
 				$CorrectSound.play()
 				$FinishingPoint/FoodBackgroundCorrect.show()
 				$FinishingPoint/FoodBackgroundWrong.hide()
+				$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
 				Global.emit_signal("track_filled", true)
 				Global.emit_signal("tick_item", acceptable_id)
-				$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
 		if acceptable_id != area.food_id:
 			is_filled = true
 			$WrongSound.play()
@@ -93,23 +93,24 @@ func _on_food_avoided():
 
 
 func _on_clear_button_pressed():
-	$ScaleAnimation.play("tap")
-	$TapSound.play()
-	number_of_clicks += 1
-	if number_of_clicks >= 5:
-		reset_clicks()
-		is_filled = false
-		if is_filled_correctly:
-			is_filled_correctly = false
-			Global.emit_signal("track_filled", false)
-		$CrashSound.play()
-		$TransparencyAnimation.play("disappear")
-		yield($TransparencyAnimation, "animation_finished")
-		$FinishingPoint/ArrivedFoodSprite.modulate = Color.white
-		$FinishingPoint/ArrivedFoodSprite.texture = null
-		$FinishingPoint/FoodBackgroundCorrect.hide()
-		$FinishingPoint/FoodBackgroundWrong.hide()
-	$ClearButtonTimer.start()
+	if is_filled:
+		$ScaleAnimation.play("tap")
+		$TapSound.play()
+		number_of_clicks += 1
+		if number_of_clicks >= 5:
+			reset_clicks()
+			is_filled = false
+			if is_filled_correctly:
+				is_filled_correctly = false
+				Global.emit_signal("track_filled", false)
+			$CrashSound.play()
+			$TransparencyAnimation.play("disappear")
+			yield($TransparencyAnimation, "animation_finished")
+			$FinishingPoint/ArrivedFoodSprite.modulate = Color.white
+			$FinishingPoint/ArrivedFoodSprite.texture = null
+			$FinishingPoint/FoodBackgroundCorrect.hide()
+			$FinishingPoint/FoodBackgroundWrong.hide()
+		$ClearButtonTimer.start()
 
 
 func reset_clicks():

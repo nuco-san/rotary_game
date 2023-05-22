@@ -11,7 +11,6 @@ func _ready():
 	Global.connect("tick_item", self, "tick_item")
 	Global.connect("untick_item", self, "untick_item")
 	init_list()
-	init_dictionary()
 
 
 func tick_item(food_name):
@@ -50,6 +49,7 @@ func clear_list():
 
 func init_list():
 	$Title.text = title
+	init_dictionary()
 	for food in foods_res.food_ids:
 		var new_list_item = ListItem.instance()
 		new_list_item.item_name = food
@@ -62,6 +62,7 @@ func untick_all_items():
 
 
 func init_dictionary():
+	foods_dictionary.clear()
 	for food in foods_res.food_ids:
 		foods_dictionary[food] = 0
 

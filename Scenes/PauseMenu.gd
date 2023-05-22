@@ -25,3 +25,22 @@ func pause_button_released():
 func resume():
 	get_tree().paused = false
 	$PauseMenuPanel.hide()
+
+
+func back_to_titlescreen():
+	Global.restart_game()
+
+
+func show_vuoidavvero():
+	$PauseMenuPanel/VuoiDavvero.show()
+	$PauseMenuPanel/MainPauseMenu.hide()
+
+
+func hide_vuoidavvero():
+	$PauseMenuPanel/VuoiDavvero.hide()
+	$PauseMenuPanel/MainPauseMenu.show()
+
+
+
+
+

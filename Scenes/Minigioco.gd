@@ -4,7 +4,7 @@ export(int) var minigame_number
 
 var time_left
 var correct_foods := 0
-var correct_foods_goal := 8
+var correct_foods_goal := 1
 var is_doing_fire_sequence = false
 var fire_time_left = 5
 
@@ -54,6 +54,7 @@ func _on_LevelTimer_timeout():
 	if time_left <= 0:
 		stop_minigame()
 		$LevelTimer.stop()
+		$UI/MinigameCountdown.stop_countdown()
 		$UI/TimeOut.show()
 		$UI/TimeOut/TimeOutTimer.start()
 		yield($UI/TimeOut/TimeOutTimer, "timeout")
@@ -63,6 +64,7 @@ func _on_LevelTimer_timeout():
 
 func reset_minigame():
 	Global.increase_round()
+	Global.emit_signal("round_updated")
 	stop_minigame()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.show_yeah()
@@ -77,7 +79,7 @@ func reset_minigame():
 			$UI/FoodList.foods_res = load("res://sorrentina_foods.tres")
 			$UI/FoodList.clear_list()
 			$UI/FoodList.init_list()
-		if Global.current_round % 2 == 2:
+		if Global.current_round % 2 == 0:
 			$UI/FoodList.title = "Frittata colorata"
 			$UI/FoodList.foods_res = load("res://frittata_foods.tres")
 			$UI/FoodList.clear_list()
@@ -94,7 +96,7 @@ func _on_outro_slides_read():
 
 
 func stop_minigame():
-	yield(get_tree().create_timer(0.2), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	correct_foods = 0
 	$LevelTimer.paused = true
 	$TrackManagerLeft.reset_tracks()
@@ -130,7 +132,7 @@ func complete_fire_sequence():
 
 
 func stop_fire_sequence():
-	yield(get_tree().create_timer(0.2), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$UI/FoodList.untick_all_items()
 	fire_time_left = 5
 	$UI/FireTimerLabel.text = str(fire_time_left)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Height25.otf" type="DynamicFontData" id=2]
@@ -10,6 +10,10 @@ radius = 70.0
 
 [sub_resource type="DynamicFont" id=2]
 size = 120
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
 font_data = ExtResource( 2 )
 
 [node name="PauseMenu" type="Node2D"]
@@ -37,17 +41,17 @@ shape = SubResource( 1 )
 layer = 2
 visible = false
 
-[node name="Control" type="Control" parent="PauseMenuPanel"]
-margin_right = 1920.0
-margin_bottom = 1200.0
-rect_min_size = Vector2( 1920, 1200 )
-
-[node name="BG" type="TextureRect" parent="PauseMenuPanel/Control"]
+[node name="BG" type="TextureRect" parent="PauseMenuPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
 
-[node name="Title" type="Label" parent="PauseMenuPanel/Control"]
+[node name="MainPauseMenu" type="Control" parent="PauseMenuPanel"]
+margin_right = 1920.0
+margin_bottom = 1200.0
+rect_min_size = Vector2( 1920, 1200 )
+
+[node name="Title" type="Label" parent="PauseMenuPanel/MainPauseMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -672.0
@@ -60,7 +64,7 @@ text = "PAUSA"
 align = 1
 valign = 1
 
-[node name="UIButton" parent="PauseMenuPanel/Control" instance=ExtResource( 3 )]
+[node name="ResumeButton" parent="PauseMenuPanel/MainPauseMenu" instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -71,6 +75,58 @@ margin_right = 288.0
 margin_bottom = 127.5
 text = "RIPRENDI"
 
+[node name="BackToTitlescreen" parent="PauseMenuPanel/MainPauseMenu" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 155.0
+margin_right = 288.0
+margin_bottom = 234.0
+text = "TORNA AL MENU INZIALE"
+
+[node name="VuoiDavvero" type="Control" parent="PauseMenuPanel"]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1200.0
+rect_min_size = Vector2( 1920, 1200 )
+
+[node name="Title" type="Label" parent="PauseMenuPanel/VuoiDavvero"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -672.0
+margin_top = 384.0
+margin_right = 672.0
+margin_bottom = 590.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Vuoi davvero uscire?"
+align = 1
+valign = 1
+
+[node name="SiButton" parent="PauseMenuPanel/VuoiDavvero" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -14.0
+margin_right = 288.0
+margin_bottom = 65.0
+text = "SÌ"
+
+[node name="NoButton" parent="PauseMenuPanel/VuoiDavvero" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 95.5
+margin_right = 288.0
+margin_bottom = 174.5
+text = "NO"
+
 [connection signal="pressed" from="PauseMenuButton1" to="." method="pause_button_pressed"]
 [connection signal="released" from="PauseMenuButton1" to="." method="pause_button_released"]
 [connection signal="pressed" from="PauseMenuButton2" to="." method="pause_button_pressed"]
@@ -78,4 +134,7 @@ text = "RIPRENDI"
 [connection signal="pressed" from="PauseMenuButton3" to="." method="pause_button_pressed"]
 [connection signal="pressed" from="PauseMenuButton4" to="." method="pause_button_pressed"]
 [connection signal="released" from="PauseMenuButton4" to="." method="pause_button_released"]
-[connection signal="button_pressed" from="PauseMenuPanel/Control/UIButton" to="." method="resume"]
+[connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/ResumeButton" to="." method="resume"]
+[connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/BackToTitlescreen" to="." method="show_vuoidavvero"]
+[connection signal="button_pressed" from="PauseMenuPanel/VuoiDavvero/SiButton" to="." method="back_to_titlescreen"]
+[connection signal="button_pressed" from="PauseMenuPanel/VuoiDavvero/NoButton" to="." method="hide_vuoidavvero"]

@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Titlescreen_ROTARY_2.png" type="Texture" id=1]
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Height25.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/FinalScreen.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -25,13 +29,46 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -297.0
-margin_top = -163.0
-margin_right = 297.0
-margin_bottom = -54.0
+margin_left = -443.0
+margin_top = -315.0
+margin_right = 443.0
+margin_bottom = -206.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Congratulazioni!"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Sottotitolo2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -458.0
+margin_top = -162.0
+margin_right = 458.0
+margin_bottom = -53.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Grazie per aver giocato"
+text = "Abbiamo aggiunto tanti posti alla tavola del Pianeta Terra!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Sottotitolo3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -458.0
+margin_top = -38.0
+margin_right = 458.0
+margin_bottom = 71.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Ora... facciamolo anche a casa!"
 align = 1
 valign = 1
 autowrap = true
@@ -42,9 +79,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -353.0
-margin_top = -11.0
+margin_top = 184.0
 margin_right = 353.0
-margin_bottom = 68.0
-text = "TORNA AL TITLESCREEN"
+margin_bottom = 263.0
+text = "TORNA AL MENU INIZIALE"
 
 [connection signal="button_pressed" from="UIButton" to="." method="_on_button_pressed"]
