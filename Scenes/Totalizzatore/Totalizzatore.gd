@@ -28,7 +28,7 @@ func calculate_numbers():
 
 
 func spawn_posti():
-	if Global.partial_score > 0:
+	if Global.partial_score > 1:
 		for n in Global.partial_score:
 			if n % 2 == 0:
 				var posto_new = posto_sotto.instance()
@@ -39,6 +39,13 @@ func spawn_posti():
 				posto_new.randomize_textures()
 				$Tavola/PostiTavolaSopra.add_child(posto_new)
 		for n in Global.partial_score * 2:
+			var new_slice = tovaglia_slice.instance()
+			$Tavola/TovagliaContainer.add_child(new_slice)
+	if Global.partial_score == 1:
+		var posto_new = posto_sotto.instance()
+		posto_new.randomize_textures()
+		$Tavola/PostiTavolaSotto.add_child(posto_new)
+		for n in 4:
 			var new_slice = tovaglia_slice.instance()
 			$Tavola/TovagliaContainer.add_child(new_slice)
 	else:

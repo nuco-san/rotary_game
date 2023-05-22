@@ -6,7 +6,7 @@ var current_round := 1
 enum game_modes {STORY, SELECTION}
 var current_game_mode = game_modes.STORY
 var total_score = 0
-var partial_score = 0
+var partial_score = 1
 
 signal track_filled
 signal too_much_food
