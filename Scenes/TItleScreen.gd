@@ -2,7 +2,7 @@ extends Control
 
 
 func start_story_mode():
-	Global.load_minigame(1)
+	get_tree().change_scene("res://Scenes/InitialScreen.tscn")
 	Global.current_game_mode = Global.game_modes.STORY
 
 

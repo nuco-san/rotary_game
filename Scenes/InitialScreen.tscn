@@ -1,0 +1,226 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Totalizzatore/TovagliaSlice.tscn" type="PackedScene" id=1]
+[ext_resource path="res://00_Font_ROTARY/Inconstant-Height25.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://05_Totalizzatore/Piatti/Piatto_4.png" type="Texture" id=4]
+[ext_resource path="res://05_Totalizzatore/Mani/Mani_6.png" type="Texture" id=5]
+[ext_resource path="res://05_Totalizzatore/Mani/Mani_7.png" type="Texture" id=6]
+[ext_resource path="res://05_Totalizzatore/Piatti/Piatto_8.png" type="Texture" id=7]
+[ext_resource path="res://05_Totalizzatore/Piatti/Piatto_vuoto.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/InitialScreen.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="FinalScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1920, 1200 )
+script = ExtResource( 9 )
+
+[node name="Tavola" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+
+[node name="TovagliaContainer" type="HBoxContainer" parent="Tavola"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = -2
+
+[node name="TovagliaSlice" parent="Tavola/TovagliaContainer" instance=ExtResource( 1 )]
+margin_right = 501.0
+margin_bottom = 1201.0
+
+[node name="TovagliaSlice2" parent="Tavola/TovagliaContainer" instance=ExtResource( 1 )]
+margin_left = 499.0
+margin_right = 1000.0
+margin_bottom = 1201.0
+
+[node name="TovagliaSlice3" parent="Tavola/TovagliaContainer" instance=ExtResource( 1 )]
+margin_left = 998.0
+margin_right = 1499.0
+margin_bottom = 1201.0
+
+[node name="TovagliaSlice4" parent="Tavola/TovagliaContainer" instance=ExtResource( 1 )]
+margin_left = 1497.0
+margin_right = 1998.0
+margin_bottom = 1201.0
+
+[node name="Slide1" type="Control" parent="Tavola"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect4" type="TextureRect" parent="Tavola/Slide1"]
+margin_left = 229.0
+margin_top = 725.0
+margin_right = 808.0
+margin_bottom = 1098.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 289, 186 )
+texture = ExtResource( 8 )
+
+[node name="TextureRect5" type="TextureRect" parent="Tavola/Slide1"]
+margin_left = 1095.0
+margin_top = 725.0
+margin_right = 1674.0
+margin_bottom = 1098.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 289, 186 )
+texture = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="Tavola/Slide1"]
+margin_left = 13.0
+margin_top = 800.0
+margin_right = 988.0
+margin_bottom = 1248.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 487, 224 )
+texture = ExtResource( 6 )
+
+[node name="TextureRect2" type="TextureRect" parent="Tavola/Slide1"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -993.0
+margin_top = 798.0
+margin_right = -18.9999
+margin_bottom = 45.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 487, 224 )
+texture = ExtResource( 5 )
+
+[node name="Sottotitolo2" type="Label" parent="Tavola/Slide1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -458.0
+margin_top = -373.0
+margin_right = 458.0
+margin_bottom = -264.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "La tavola del Pianeta Terra ha bisogno di noi!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Sottotitolo3" type="Label" parent="Tavola/Slide1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -458.0
+margin_top = -231.0
+margin_right = 458.0
+margin_bottom = -122.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Meno alimenti sprechiamo ogni giorno, più bene facciamo al mondo..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ContinuaButton" parent="Tavola/Slide1" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -50.0
+margin_right = 249.0
+margin_bottom = 29.0
+text = "CONTINUA"
+
+[node name="Slide2" type="Control" parent="Tavola"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect4" type="TextureRect" parent="Tavola/Slide2"]
+margin_left = 229.0
+margin_top = 725.0
+margin_right = 808.0
+margin_bottom = 1098.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 289, 186 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect5" type="TextureRect" parent="Tavola/Slide2"]
+margin_left = 1095.0
+margin_top = 725.0
+margin_right = 1674.0
+margin_bottom = 1098.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 289, 186 )
+texture = ExtResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="Tavola/Slide2"]
+margin_left = 13.0
+margin_top = 800.0
+margin_right = 988.0
+margin_bottom = 1248.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 487, 224 )
+texture = ExtResource( 6 )
+
+[node name="TextureRect2" type="TextureRect" parent="Tavola/Slide2"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -993.0
+margin_top = 798.0
+margin_right = -18.9999
+margin_bottom = 45.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 487, 224 )
+texture = ExtResource( 5 )
+
+[node name="Sottotitolo2" type="Label" parent="Tavola/Slide2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -458.0
+margin_top = -373.0
+margin_right = 458.0
+margin_bottom = -264.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "...Ci sarà più cibo per le altre persone, e più risorse per produrlo!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Sottotitolo3" type="Label" parent="Tavola/Slide2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -458.0
+margin_top = -231.0
+margin_right = 458.0
+margin_bottom = -122.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Pronte e pronti ad aggiungere tanti posti a tavola?"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ContinuaButton" parent="Tavola/Slide2" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -50.0
+margin_right = 249.0
+margin_bottom = 29.0
+text = "CONTINUA"
+
+[connection signal="button_pressed" from="Tavola/Slide1/ContinuaButton" to="." method="show_second_slide"]
+[connection signal="button_pressed" from="Tavola/Slide2/ContinuaButton" to="." method="load_first_minigame"]

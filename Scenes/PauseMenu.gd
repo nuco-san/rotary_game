@@ -29,6 +29,8 @@ func resume():
 
 func back_to_titlescreen():
 	Global.restart_game()
+	hide_vuoidavvero()
+	resume()
 
 
 func show_vuoidavvero():

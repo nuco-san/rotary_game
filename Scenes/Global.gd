@@ -54,5 +54,3 @@ func restart_game():
 	partial_score = 0
 
 
-
-
