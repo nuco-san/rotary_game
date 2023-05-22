@@ -8,17 +8,25 @@ func _ready():
 	show()
 
 func start_countdown():
-	if Global.current_round > 1:
-		$YeahLabel.show()
-		$VBoxContainer.hide()
-		$YeahTimer.start()
-		yield($YeahTimer, "timeout")
+	$VBoxContainer/CounterLabel.show()
+	$IniziaButton.hide()
 	$YeahLabel.hide()
 	$VBoxContainer.show()
 	$AudioStreamPlayer.play()
 	$VBoxContainer/RoundLabel.text = "Round " + str(Global.current_round)
 	countdown_time = 3
 	$CountdownTimer.start()
+
+func show_yeah():
+	$VBoxContainer/RoundLabel.text = "Round " + str(Global.current_round)
+	$YeahLabel.show()
+	$VBoxContainer.hide()
+	$YeahTimer.start()
+	yield($YeahTimer, "timeout")
+	$VBoxContainer/CounterLabel.hide()
+	$YeahLabel.hide()
+	$VBoxContainer.show()
+	$IniziaButton.show()
 
 
 func _on_Timer_timeout():

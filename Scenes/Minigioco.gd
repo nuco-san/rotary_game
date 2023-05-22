@@ -15,7 +15,7 @@ func _ready():
 
 
 func start_minigame():
-	$UI/MinigameCountdown.start_countdown()
+	$UI/MinigameCountdown.show()
 
 
 func _on_track_filled(correctly):
@@ -40,6 +40,7 @@ func _on_too_much_food():
 
 
 func _on_countdown_finished():
+	$LevelTimer.paused = false
 	$LevelTimer.start()
 	$TrackManagerLeft.first_spawn()
 	$TrackManagerBottom.first_spawn()
@@ -64,7 +65,7 @@ func reset_minigame():
 	Global.increase_round()
 	stop_minigame()
 	$UI/MinigameCountdown.show()
-	$UI/MinigameCountdown.start_countdown()
+	$UI/MinigameCountdown.show_yeah()
 	$UI/FoodList.untick_all_items()
 	if minigame_number == 3:
 		$TrackManagerLeft.change_recipe()
@@ -95,6 +96,7 @@ func _on_outro_slides_read():
 func stop_minigame():
 	yield(get_tree().create_timer(0.2), "timeout")
 	correct_foods = 0
+	$LevelTimer.paused = true
 	$TrackManagerLeft.reset_tracks()
 	$TrackManagerBottom.reset_tracks()
 	$TrackManagerRight.reset_tracks()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/MinigameCountdown.gd" type="Script" id=2]
 [ext_resource path="res://SOund/bleep.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=6]
 size = 44
@@ -38,15 +39,16 @@ custom_constants/separation = 22
 alignment = 1
 
 [node name="RoundLabel" type="Label" parent="VBoxContainer"]
-margin_top = 39.0
+margin_top = 137.0
 margin_right = 1920.0
-margin_bottom = 86.0
+margin_bottom = 184.0
 custom_fonts/font = SubResource( 6 )
 text = "Round 1"
 align = 1
 valign = 1
 
 [node name="CounterLabel" type="Label" parent="VBoxContainer"]
+visible = false
 margin_top = 108.0
 margin_right = 1920.0
 margin_bottom = 282.0
@@ -55,6 +57,17 @@ text = "3"
 align = 1
 valign = 1
 uppercase = true
+
+[node name="IniziaButton" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.0
+margin_top = 429.0
+margin_right = 203.0
+margin_bottom = 508.0
+text = "INIZIA"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -80,4 +93,5 @@ one_shot = true
 
 [node name="CountdownTimer" type="Timer" parent="."]
 
+[connection signal="button_pressed" from="IniziaButton" to="." method="start_countdown"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_Timer_timeout"]
