@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Height25.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://SOund/button.mp3" type="AudioStream" id=2]
@@ -15,6 +15,33 @@ content_margin_top = 20.0
 content_margin_bottom = 20.0
 bg_color = Color( 1, 1, 1, 0 )
 border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:rect_size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "underline_anim"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:rect_size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
 
 [node name="UIButtonLevelSelection" type="Button"]
 margin_right = 576.0
@@ -40,7 +67,12 @@ stream = ExtResource( 2 )
 margin_left = 167.0
 margin_top = 87.0
 margin_right = 404.0
-margin_bottom = 92.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 2 )
 color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/underline_anim = SubResource( 6 )
 
 [connection signal="pressed" from="." to="." method="_on_LevelSelectionButton_pressed"]
