@@ -4,7 +4,7 @@ export(int) var minigame_number
 
 var time_left
 var correct_foods := 0
-var correct_foods_goal := 1
+var correct_foods_goal := 8
 var fire_time_left = 5
 
 var is_winning_round = false

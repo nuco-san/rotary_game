@@ -1,13 +1,12 @@
 extends Node2D
 
-var minigame_duration := 5
+var minigame_duration := 180
 var current_minigame := 1
 var current_round := 1
 enum game_modes {STORY, SELECTION}
 var current_game_mode = game_modes.STORY
 var total_score = 0
 var partial_score = 0
-
 
 signal track_filled
 signal too_much_food
