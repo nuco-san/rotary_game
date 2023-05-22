@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 70.0

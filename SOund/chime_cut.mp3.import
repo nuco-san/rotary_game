@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chime_cut.mp3-29b9e32e9b4dbf62ce39c1cf7a54d7aa.mp3str"
+
+[deps]
+
+source_file="res://SOund/chime_cut.mp3"
+dest_files=[ "res://.import/chime_cut.mp3-29b9e32e9b4dbf62ce39c1cf7a54d7aa.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

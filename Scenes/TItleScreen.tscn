@@ -2,8 +2,8 @@
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/TItleScreen.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/UIButtonLevelSelection.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/UI_elements/UIButtonLevelSelection.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76

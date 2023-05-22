@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/UIButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/MinigameSlides.gd" type="Script" id=3]
 
 [node name="MinigameSlides" type="Sprite"]

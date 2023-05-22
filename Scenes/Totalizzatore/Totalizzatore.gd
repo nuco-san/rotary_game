@@ -11,6 +11,8 @@ func init_animations():
 	spawn_posti()
 	$Totalizzatore_UI/Punteggio.text = str(Global.total_score)
 	$StartTimer.start()
+	$SoundAnimator.play("sound_up")
+	$EatingSound.play()
 
 
 func spawn_posti():
@@ -38,6 +40,7 @@ func numbers_animation():
 	$NumbersTimer.wait_time = 3.0 / Global.partial_score
 	for n in Global.partial_score:
 		score_to_use += 1
+		$Ding.play()
 		$Totalizzatore_UI/Punteggio.text = str(score_to_use)
 		$NumbersTimer.start()
 		yield($NumbersTimer, "timeout")

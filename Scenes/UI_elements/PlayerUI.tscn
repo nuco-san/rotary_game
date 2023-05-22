@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/PlayerUI.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI_elements/PlayerUI.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=2]
 size = 34

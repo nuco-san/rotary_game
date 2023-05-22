@@ -2,7 +2,7 @@
 
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://SOund/button.mp3" type="AudioStream" id=2]
-[ext_resource path="res://Scenes/UIButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI_elements/UIButton.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
