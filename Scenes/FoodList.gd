@@ -56,7 +56,6 @@ func init_list():
 		$VBoxContainer.add_child(new_list_item)
 
 func untick_all_items():
-	init_dictionary()
 	for item in $VBoxContainer.get_children():
 		item.untick()
 

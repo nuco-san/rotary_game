@@ -6,9 +6,6 @@
 [node name="Minigioco_1" instance=ExtResource( 1 )]
 minigame_number = 1
 
-[node name="Fuoco" parent="Sfondo_sotto" index="0"]
-frame = 0
-
 [node name="TrackManagerLeft" parent="." index="1"]
 position = Vector2( 124, 551 )
 
@@ -24,8 +21,14 @@ position = Vector2( 897, 1269 )
 [node name="FoodTrack_1" parent="TrackManagerBottom" index="0"]
 correct_spawn_probability_min = 0.3
 
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_1/FinishingPoint" index="3"]
+frame = 1
+
 [node name="FoodTrack_2" parent="TrackManagerBottom" index="1"]
 correct_spawn_probability_min = 0.3
+
+[node name="FoodBackgroundWrong" parent="TrackManagerBottom/FoodTrack_2/FinishingPoint" index="3"]
+frame = 1
 
 [node name="TrackManagerRight" parent="." index="3"]
 position = Vector2( 1797, 551 )
@@ -33,8 +36,14 @@ position = Vector2( 1797, 551 )
 [node name="FoodTrack_1" parent="TrackManagerRight" index="0"]
 correct_spawn_probability_min = 0.3
 
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_1/FinishingPoint" index="3"]
+frame = 1
+
 [node name="FoodTrack_2" parent="TrackManagerRight" index="1"]
 correct_spawn_probability_min = 0.3
+
+[node name="FoodBackgroundWrong" parent="TrackManagerRight/FoodTrack_2/FinishingPoint" index="3"]
+frame = 1
 
 [node name="TrackManagerTop" parent="." index="4"]
 position = Vector2( 897, -29 )
@@ -42,8 +51,14 @@ position = Vector2( 897, -29 )
 [node name="FoodTrack_1" parent="TrackManagerTop" index="0"]
 correct_spawn_probability_min = 0.3
 
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_1/FinishingPoint" index="3"]
+frame = 1
+
 [node name="FoodTrack_2" parent="TrackManagerTop" index="1"]
 correct_spawn_probability_min = 0.3
+
+[node name="FoodBackgroundWrong" parent="TrackManagerTop/FoodTrack_2/FinishingPoint" index="3"]
+frame = 1
 
 [node name="FoodList" parent="UI" index="5"]
 margin_left = 1291.0

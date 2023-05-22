@@ -45,6 +45,7 @@ func _on_too_much_food():
 
 
 func _on_countdown_finished():
+	$UI/FoodList.untick_all_items()
 	$LevelTimer.paused = false
 	$LevelTimer.start()
 	$TrackManagerLeft.first_spawn()
@@ -73,7 +74,6 @@ func reset_minigame():
 	stop_minigame()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.show_yeah()
-	$UI/FoodList.untick_all_items()
 	if minigame_number == 3:
 		$TrackManagerLeft.change_recipe()
 		$TrackManagerBottom.change_recipe()
