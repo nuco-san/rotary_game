@@ -5,8 +5,13 @@ export(int) var minigame_number
 var time_left
 var correct_foods := 0
 var correct_foods_goal := 1
-var is_doing_fire_sequence = false
 var fire_time_left = 5
+
+var is_winning_round = false
+var is_stopping_minigame = false
+var is_stopping_fire_sequence = false
+var is_doing_fire_sequence = false
+
 
 
 func _ready():
@@ -27,7 +32,7 @@ func _on_track_filled(correctly):
 		correct_foods -= 1
 		if minigame_number == 3 and is_doing_fire_sequence:
 			stop_fire_sequence()
-	if correct_foods == correct_foods_goal:
+	if correct_foods == correct_foods_goal and is_stopping_minigame == false and is_stopping_fire_sequence == false:
 		if minigame_number == 3:
 			start_fire_sequence()
 		else:
@@ -96,13 +101,15 @@ func _on_outro_slides_read():
 
 
 func stop_minigame():
-	yield(get_tree().create_timer(0.1), "timeout")
+	is_stopping_minigame = true
+	yield(get_tree().create_timer(0.05), "timeout")
 	correct_foods = 0
 	$LevelTimer.paused = true
 	$TrackManagerLeft.reset_tracks()
 	$TrackManagerBottom.reset_tracks()
 	$TrackManagerRight.reset_tracks()
 	$TrackManagerTop.reset_tracks()
+	is_stopping_minigame = false
 
 
 func start_fire_sequence():
@@ -132,7 +139,8 @@ func complete_fire_sequence():
 
 
 func stop_fire_sequence():
-	yield(get_tree().create_timer(0.1), "timeout")
+	is_stopping_fire_sequence = true
+	yield(get_tree().create_timer(0.05), "timeout")
 	$UI/FoodList.untick_all_items()
 	fire_time_left = 5
 	$UI/FireTimerLabel.text = str(fire_time_left)
@@ -145,6 +153,7 @@ func stop_fire_sequence():
 	$TrackManagerRight.reset_tracks_fire()
 	$TrackManagerTop.reset_tracks_fire()
 	correct_foods = 0
+	is_stopping_fire_sequence = false
 
 
 func increase_right_spawn_probability():

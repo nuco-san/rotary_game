@@ -21,9 +21,9 @@ var is_filled = false
 var is_filled_correctly = false
 var new_food_array = []
 
-var correct_spawn_probability_min = 0.2
-var correct_spawn_probability_max = 0.4
-var correct_spawn_probabilty
+export(float) var correct_spawn_probability_min = 0.2
+export(float) var correct_spawn_probability_max = 0.4
+export(float) var correct_spawn_probabilty
 
 
 func _ready():
