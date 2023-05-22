@@ -9,7 +9,6 @@ func _input(event):
 		get_tree().paused = true
 
 
-
 func pause_button_pressed():
 	pressed_buttons_number += 1
 	if pressed_buttons_number == 4:
@@ -41,6 +40,7 @@ func show_vuoidavvero():
 func hide_vuoidavvero():
 	$PauseMenuPanel/VuoiDavvero.hide()
 	$PauseMenuPanel/MainPauseMenu.show()
+
 
 
 
