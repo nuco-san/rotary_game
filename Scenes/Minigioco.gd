@@ -71,12 +71,12 @@ func reset_minigame():
 		$TrackManagerBottom.change_recipe()
 		$TrackManagerRight.change_recipe()
 		$TrackManagerTop.change_recipe()
-		if Global.current_round % 2 == 0:
+		if Global.current_round % 2 == 1:
 			$UI/FoodList.title = "Gnocchi alla sorrentina"
 			$UI/FoodList.foods_res = load("res://sorrentina_foods.tres")
 			$UI/FoodList.clear_list()
 			$UI/FoodList.init_list()
-		if Global.current_round % 2 == 1:
+		if Global.current_round % 2 == 2:
 			$UI/FoodList.title = "Frittata colorata"
 			$UI/FoodList.foods_res = load("res://frittata_foods.tres")
 			$UI/FoodList.clear_list()

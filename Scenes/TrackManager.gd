@@ -53,14 +53,14 @@ func reset_tracks_fire():
 
 
 func change_recipe():
-	if Global.current_round % 2 == 0:
+	if Global.current_round % 2 == 1:
 		$FoodTrack_1.food_res = minigame3_recipe_1
 		$FoodTrack_1.acceptable_id = $FoodTrack_1.acceptable_id_original
 		$FoodTrack_1.init_icon()
 		$FoodTrack_2.food_res = minigame3_recipe_1
 		$FoodTrack_2.acceptable_id = $FoodTrack_2.acceptable_id_original
 		$FoodTrack_2.init_icon()
-	if Global.current_round % 2 == 1:
+	if Global.current_round % 2 == 0:
 		$FoodTrack_1.food_res = minigame3_recipe_2
 		$FoodTrack_1.acceptable_id = $FoodTrack_1.acceptable_id_alt
 		$FoodTrack_1.init_icon()
