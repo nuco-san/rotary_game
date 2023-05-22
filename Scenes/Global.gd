@@ -1,6 +1,6 @@
 extends Node2D
 
-var minigame_duration := 180
+var minigame_duration := 120
 var current_minigame := 1
 var current_round := 1
 enum game_modes {STORY, SELECTION}

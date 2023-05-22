@@ -121,7 +121,7 @@ margin_right = 313.0
 margin_bottom = 372.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "12"
+text = "0"
 align = 1
 valign = 1
 
@@ -132,7 +132,7 @@ margin_right = 443.0
 margin_bottom = 367.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 7 )
-text = "+12"
+text = "+0"
 align = 1
 valign = 1
 
@@ -169,7 +169,7 @@ margin_right = 419.0
 margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 8 )
-text = "1000l"
+text = "0l"
 valign = 1
 autowrap = true
 uppercase = true
@@ -207,7 +207,7 @@ margin_right = 412.0
 margin_bottom = 179.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 10 )
-text = "= 30 vasche da bagno"
+text = "= 0 vasche da bagno"
 valign = 1
 autowrap = true
 
@@ -231,7 +231,7 @@ margin_right = 419.0
 margin_bottom = 62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 8 )
-text = "1000m²"
+text = "0m²"
 valign = 1
 autowrap = true
 
@@ -268,7 +268,7 @@ margin_right = 412.0
 margin_bottom = 179.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 10 )
-text = "= 30 campi da basket"
+text = "= 0 campi da basket"
 valign = 1
 autowrap = true
 
@@ -289,9 +289,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -337.0
+margin_left = -143.0
 margin_top = -142.0
-margin_right = 337.0
+margin_right = 531.0
 margin_bottom = 142.0
 custom_styles/panel = SubResource( 3 )
 

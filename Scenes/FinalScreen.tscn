@@ -83,17 +83,6 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="UIButton" parent="." instance=ExtResource( 3 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -353.0
-margin_top = 153.0
-margin_right = 353.0
-margin_bottom = 232.0
-text = "TORNA AL MENU INIZIALE"
-
 [node name="Piatti" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -193,5 +182,16 @@ margin_right = 2068.0
 margin_bottom = 401.0
 rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 6 )
+
+[node name="UIButton" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -353.0
+margin_top = 153.0
+margin_right = 353.0
+margin_bottom = 232.0
+text = "TORNA AL MENU INIZIALE"
 
 [connection signal="button_pressed" from="UIButton" to="." method="_on_button_pressed"]

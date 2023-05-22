@@ -4,7 +4,7 @@ var pressed_buttons_number := 0
 
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pausa"):
 		$PauseMenuPanel.show()
 		get_tree().paused = true
 

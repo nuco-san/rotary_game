@@ -12,18 +12,12 @@ var terra_value
 var basket_value
 
 
-func _ready():
-	init_animations()
-
-
 func init_animations():
 	spawn_posti()
 	calculate_numbers()
 	$Totalizzatore_UI/Punteggio.text = str(Global.total_score)
 	$Totalizzatore_UI/PunteggioAggiuntivo.text = "+" + str(Global.partial_score)
 	$StartTimer.start()
-	$SoundAnimator.play("sound_up")
-	$EatingSound.play()
 
 
 func calculate_numbers():
@@ -54,6 +48,8 @@ func spawn_posti():
 
 
 func numbers_animation():
+	$SoundAnimator.play("sound_up")
+	$EatingSound.play()
 	var score_to_use = Global.total_score
 	$NumbersTimer.wait_time = 3.0 / Global.partial_score
 	for n in Global.partial_score:
@@ -65,9 +61,9 @@ func numbers_animation():
 		$Ding.play()
 		$Totalizzatore_UI/Punteggio.text = str(score_to_use)
 		$Totalizzatore_UI/Acqua/AcquaValue.text = str(acqua_value) + "l"
-		$Totalizzatore_UI/Acqua/VascheValue.text = "+ " + str(vasche_value) + " vasche da bagno"
+		$Totalizzatore_UI/Acqua/VascheValue.text = "= " + str(vasche_value) + " vasche da bagno"
 		$Totalizzatore_UI/Terra/TerraValue.text = str(terra_value) + "m²"
-		$Totalizzatore_UI/Terra/CampiValue.text =  "+ " + str(basket_value) + " campi da basket"
+		$Totalizzatore_UI/Terra/CampiValue.text =  "= " + str(basket_value) + " campi da basket"
 		$NumbersTimer.start()
 		yield($NumbersTimer, "timeout")
 	$Totalizzatore_UI/PunteggioAggiuntivo.hide()

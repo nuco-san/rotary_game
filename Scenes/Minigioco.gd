@@ -74,6 +74,7 @@ func reset_minigame():
 	stop_minigame()
 	$UI/MinigameCountdown.show()
 	$UI/MinigameCountdown.show_yeah()
+	$RoundCompletedSound.play()
 	if minigame_number == 3:
 		$TrackManagerLeft.change_recipe()
 		$TrackManagerBottom.change_recipe()
