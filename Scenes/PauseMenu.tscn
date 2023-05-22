@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=1]
-[ext_resource path="res://00_Font_ROTARY/Inconstant-Base100.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://00_Font_ROTARY/Inconstant-Height25.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Titlescreen_ROTARY_2.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 70.0
 
 [sub_resource type="DynamicFont" id=2]
-size = 76
+size = 120
 font_data = ExtResource( 2 )
 
 [node name="PauseMenu" type="Node2D"]
@@ -41,20 +42,21 @@ margin_right = 1920.0
 margin_bottom = 1200.0
 rect_min_size = Vector2( 1920, 1200 )
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenuPanel/Control"]
+[node name="BG" type="TextureRect" parent="PauseMenuPanel/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 4 )
 
 [node name="Title" type="Label" parent="PauseMenuPanel/Control"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -672.0
-margin_top = 292.0
+margin_top = 410.0
 margin_right = 672.0
-margin_bottom = 498.0
+margin_bottom = 616.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Pausa"
+text = "PAUSA"
 align = 1
 valign = 1
 
@@ -64,9 +66,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -288.0
-margin_top = -39.5
+margin_top = 48.5
 margin_right = 288.0
-margin_bottom = 39.5
+margin_bottom = 127.5
 text = "RIPRENDI"
 
 [connection signal="pressed" from="PauseMenuButton1" to="." method="pause_button_pressed"]
