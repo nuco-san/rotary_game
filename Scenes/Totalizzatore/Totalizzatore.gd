@@ -10,6 +10,7 @@ export(PackedScene) var tovaglia_slice
 func init_animations():
 	spawn_posti()
 	$Totalizzatore_UI/Punteggio.text = str(Global.total_score)
+	$Totalizzatore_UI/PunteggioAggiuntivo.text = str(Global.partial_score)
 	$StartTimer.start()
 	$SoundAnimator.play("sound_up")
 	$EatingSound.play()
@@ -44,6 +45,7 @@ func numbers_animation():
 		$Totalizzatore_UI/Punteggio.text = str(score_to_use)
 		$NumbersTimer.start()
 		yield($NumbersTimer, "timeout")
+	$Totalizzatore_UI/PunteggioAggiuntivo.hide()
 	table_animation()
 
 
