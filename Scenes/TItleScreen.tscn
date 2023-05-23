@@ -36,26 +36,32 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -275.0
-margin_top = -402.0
+margin_top = -453.0
 margin_right = 275.0
-margin_bottom = -101.0
-custom_constants/separation = 32
+margin_bottom = -77.0
+custom_constants/separation = 20
 
 [node name="StoryModeButton" parent="TitleScreenUI/MainButtons" instance=ExtResource( 4 )]
 margin_right = 550.0
 text = "MODALITÀ STORIA"
 
 [node name="LevelSelectionButton" parent="TitleScreenUI/MainButtons" instance=ExtResource( 4 )]
-margin_top = 111.0
+margin_top = 99.0
 margin_right = 550.0
-margin_bottom = 190.0
+margin_bottom = 178.0
 text = "SELEZIONE MINIGIOCHI"
 
 [node name="CreditsButton" parent="TitleScreenUI/MainButtons" instance=ExtResource( 4 )]
-margin_top = 222.0
+margin_top = 198.0
 margin_right = 550.0
-margin_bottom = 301.0
+margin_bottom = 277.0
 text = "CREDITS"
+
+[node name="FullscreenButton" parent="TitleScreenUI/MainButtons" instance=ExtResource( 4 )]
+margin_top = 297.0
+margin_right = 550.0
+margin_bottom = 376.0
+text = "SCHERMO INTERO: NO"
 
 [node name="Sottotitolo" type="Label" parent="TitleScreenUI"]
 anchor_left = 0.5
@@ -173,11 +179,12 @@ margin_top = 40.0
 margin_right = 91.0
 margin_bottom = 54.0
 rect_scale = Vector2( 3, 3 )
-text = "v. 0.19"
+text = "v. 0.21"
 
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/StoryModeButton" to="." method="start_story_mode"]
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/LevelSelectionButton" to="." method="show_level_selection"]
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/CreditsButton" to="." method="show_credits"]
+[connection signal="button_pressed" from="TitleScreenUI/MainButtons/FullscreenButton" to="." method="toggle_fullscreen"]
 [connection signal="minigame_selected" from="SelezioneUI/LevelSelectionButtons/UIButtonLevelSelection1" to="." method="start_selected_minigame"]
 [connection signal="minigame_selected" from="SelezioneUI/LevelSelectionButtons/UIButtonLevelSelection2" to="." method="start_selected_minigame"]
 [connection signal="minigame_selected" from="SelezioneUI/LevelSelectionButtons/UIButtonLevelSelection3" to="." method="start_selected_minigame"]

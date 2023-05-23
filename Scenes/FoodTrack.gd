@@ -21,9 +21,12 @@ var is_filled = false
 var is_filled_correctly = false
 var new_food_array = []
 
+var is_clearing_area = false
+
 export(float) var correct_spawn_probability_min = 0.2
 export(float) var correct_spawn_probability_max = 0.4
 export(float) var correct_spawn_probabilty
+
 
 
 func _ready():
@@ -61,29 +64,30 @@ func spawn_food():
 
 
 func _on_destination_area_entered(area):
-	if is_filled == false or is_filled_correctly == true:
-		if acceptable_id == area.food_id:
-			if is_filled_correctly and Global.current_minigame == 3:
-				Global.emit_signal("too_much_food")
-			else:
+	if is_clearing_area == false:
+		if is_filled == false or is_filled_correctly == true:
+			if acceptable_id == area.food_id:
+				if is_filled_correctly and Global.current_minigame == 3:
+					Global.emit_signal("too_much_food")
+				else:
+					is_filled = true
+					is_filled_correctly = true
+					$CorrectSound.play()
+					$FinishingPoint/FoodBackgroundCorrect.show()
+					$FinishingPoint/FoodBackgroundWrong.hide()
+					$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
+					Global.emit_signal("track_filled", true)
+					Global.emit_signal("tick_item", acceptable_id)
+			if acceptable_id != area.food_id:
 				is_filled = true
-				is_filled_correctly = true
-				$CorrectSound.play()
-				$FinishingPoint/FoodBackgroundCorrect.show()
-				$FinishingPoint/FoodBackgroundWrong.hide()
+				$WrongSound.play()
+				$FinishingPoint/FoodBackgroundCorrect.hide()
+				$FinishingPoint/FoodBackgroundWrong.show()
 				$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
-				Global.emit_signal("track_filled", true)
-				Global.emit_signal("tick_item", acceptable_id)
-		if acceptable_id != area.food_id:
-			is_filled = true
-			$WrongSound.play()
-			$FinishingPoint/FoodBackgroundCorrect.hide()
-			$FinishingPoint/FoodBackgroundWrong.show()
-			$FinishingPoint/ArrivedFoodSprite.texture = load("res://04_Sprite_EXPORT_ROTARY/Sprite_prodotti_senzaombra_EXPORT_ROTARY/" + area.food_id + "_sprite.png")
-			if is_filled_correctly:
-				is_filled_correctly = false
-				Global.emit_signal("track_filled", false)
-				Global.emit_signal("untick_item", acceptable_id)
+				if is_filled_correctly:
+					is_filled_correctly = false
+					Global.emit_signal("track_filled", false)
+					Global.emit_signal("untick_item", acceptable_id)
 	emit_signal("track_empty", track_id)
 	area.destroy_arrive()
 
@@ -94,6 +98,7 @@ func _on_food_avoided():
 
 func _on_clear_button_pressed():
 	if is_filled:
+		is_clearing_area = true
 		$ScaleAnimation.play("tap")
 		$TapSound.play()
 		number_of_clicks += 1
@@ -104,17 +109,20 @@ func _on_clear_button_pressed():
 				is_filled_correctly = false
 				Global.emit_signal("track_filled", false)
 			$CrashSound.play()
-			$TransparencyAnimation.play("disappear")
-			yield($TransparencyAnimation, "animation_finished")
+#			$TransparencyAnimation.play("disappear")
+#			yield($TransparencyAnimation, "animation_finished")
 			$FinishingPoint/ArrivedFoodSprite.modulate = Color.white
 			$FinishingPoint/ArrivedFoodSprite.texture = null
 			$FinishingPoint/FoodBackgroundCorrect.hide()
 			$FinishingPoint/FoodBackgroundWrong.hide()
+			yield(get_tree().create_timer(0.1), "timeout")
+			is_clearing_area = false
 		$ClearButtonTimer.start()
 
 
 func reset_clicks():
 	number_of_clicks = 0
+	is_clearing_area = false
 
 
 func reset_track():

@@ -1,6 +1,6 @@
 extends Node2D
 
-var pressed_buttons_number := 0
+var pressed_buttons = []
 
 
 func _input(event):
@@ -9,16 +9,18 @@ func _input(event):
 		get_tree().paused = true
 
 
-func pause_button_pressed():
-	pressed_buttons_number += 1
-	if pressed_buttons_number == 4:
-		pressed_buttons_number = 0
+func pause_button_pressed(id):
+	if not pressed_buttons.has(id):
+		pressed_buttons.append(id)
+	if pressed_buttons.size() == 2:
+		pressed_buttons.clear()
 		$PauseMenuPanel.show()
 		get_tree().paused = true
 
 
-func pause_button_released():
-	pressed_buttons_number -= 1
+func pause_button_released(id):
+	if pressed_buttons.has(id):
+		pressed_buttons.erase(id)
 
 
 func resume():

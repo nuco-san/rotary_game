@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/PauseMenuButton.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 70.0
+
+[node name="PauseMenuButton" type="TouchScreenButton"]
+shape = SubResource( 1 )
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_PauseMenuButton_pressed"]
+[connection signal="released" from="." to="." method="_on_PauseMenuButton_released"]

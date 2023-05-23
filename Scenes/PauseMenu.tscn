@@ -4,9 +4,7 @@
 [ext_resource path="res://00_Font_ROTARY/Inconstant-Height25.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/UI_elements/UIButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://01_Cutscenes_EXPORT_ROTARY/Titlescreen_ROTARY_2.png" type="Texture" id=4]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 70.0
+[ext_resource path="res://Scenes/PauseMenuButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 size = 120
@@ -21,21 +19,21 @@ pause_mode = 2
 z_index = 10
 script = ExtResource( 1 )
 
-[node name="PauseMenuButton1" type="TouchScreenButton" parent="."]
-position = Vector2( 33, 46 )
-shape = SubResource( 1 )
+[node name="PauseMenuButton" parent="." instance=ExtResource( 5 )]
+position = Vector2( 34, 32 )
+button_id = 1
 
-[node name="PauseMenuButton2" type="TouchScreenButton" parent="."]
-position = Vector2( 42, 1033 )
-shape = SubResource( 1 )
+[node name="PauseMenuButton2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 42, 1021 )
+button_id = 2
 
-[node name="PauseMenuButton3" type="TouchScreenButton" parent="."]
-position = Vector2( 1740, 46 )
-shape = SubResource( 1 )
+[node name="PauseMenuButton3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1742, 1025 )
+button_id = 3
 
-[node name="PauseMenuButton4" type="TouchScreenButton" parent="."]
-position = Vector2( 1749, 1033 )
-shape = SubResource( 1 )
+[node name="PauseMenuButton4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1736, 42 )
+button_id = 4
 
 [node name="PauseMenuPanel" type="CanvasLayer" parent="."]
 layer = 2
@@ -127,13 +125,13 @@ margin_right = 288.0
 margin_bottom = 174.5
 text = "NO"
 
-[connection signal="pressed" from="PauseMenuButton1" to="." method="pause_button_pressed"]
-[connection signal="released" from="PauseMenuButton1" to="." method="pause_button_released"]
-[connection signal="pressed" from="PauseMenuButton2" to="." method="pause_button_pressed"]
-[connection signal="released" from="PauseMenuButton2" to="." method="pause_button_released"]
-[connection signal="pressed" from="PauseMenuButton3" to="." method="pause_button_pressed"]
-[connection signal="pressed" from="PauseMenuButton4" to="." method="pause_button_pressed"]
-[connection signal="released" from="PauseMenuButton4" to="." method="pause_button_released"]
+[connection signal="pause_button_pressed" from="PauseMenuButton" to="." method="pause_button_pressed"]
+[connection signal="pause_button_released" from="PauseMenuButton" to="." method="pause_button_released"]
+[connection signal="pause_button_pressed" from="PauseMenuButton2" to="." method="pause_button_pressed"]
+[connection signal="pause_button_released" from="PauseMenuButton2" to="." method="pause_button_released"]
+[connection signal="pause_button_pressed" from="PauseMenuButton3" to="." method="pause_button_pressed"]
+[connection signal="pause_button_released" from="PauseMenuButton3" to="." method="pause_button_released"]
+[connection signal="pause_button_pressed" from="PauseMenuButton4" to="." method="pause_button_pressed"]
 [connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/BackToTitlescreen" to="." method="show_vuoidavvero"]
 [connection signal="button_pressed" from="PauseMenuPanel/VuoiDavvero/SiButton" to="." method="back_to_titlescreen"]

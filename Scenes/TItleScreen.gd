@@ -27,4 +27,16 @@ func show_credits():
 	$CreditsUI.show()
 
 
+func toggle_fullscreen():
+	if OS.window_fullscreen:
+		OS.window_fullscreen = false
+		$TitleScreenUI/MainButtons/FullscreenButton.text = "SCHERMO INTERO: NO"
+		return
+	if not OS.window_fullscreen:
+		OS.window_fullscreen = true
+		$TitleScreenUI/MainButtons/FullscreenButton.text = "SCHERMO INTERO: SÌ"
+		return
+
+
+
 
