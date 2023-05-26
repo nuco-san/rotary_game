@@ -267,17 +267,17 @@ wait_time = 2.0
 position = Vector2( 960, 607 )
 slides = [ ExtResource( 8 ), ExtResource( 9 ) ]
 
-[node name="OutroSlides" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 960, 607 )
-texture = ExtResource( 12 )
-slides = [ ExtResource( 12 ), ExtResource( 13 ) ]
-
 [node name="Totalizzatore" parent="." instance=ExtResource( 10 )]
 visible = false
 margin_top = 7.0
 margin_right = 1920.0
 margin_bottom = 1207.0
+
+[node name="OutroSlides" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 960, 607 )
+texture = ExtResource( 12 )
+slides = [ ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="LevelTimer" type="Timer" parent="."]
 
@@ -288,8 +288,8 @@ stream = ExtResource( 18 )
 
 [connection signal="countdown_finished" from="UI/MinigameCountdown" to="." method="_on_countdown_finished"]
 [connection signal="slides_finished" from="IntroSlides" to="." method="start_minigame"]
-[connection signal="slides_finished" from="OutroSlides" to="." method="_on_outro_slides_read"]
 [connection signal="results_read" from="Totalizzatore" to="." method="_on_results_read"]
+[connection signal="slides_finished" from="OutroSlides" to="." method="_on_outro_slides_read"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
 
