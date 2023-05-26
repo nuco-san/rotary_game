@@ -14,6 +14,8 @@ signal timer_updated
 signal round_updated
 signal tick_item
 signal untick_item
+signal fullscreen_on
+signal fullscreen_off
 
 
 

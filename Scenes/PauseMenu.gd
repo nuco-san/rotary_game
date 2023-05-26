@@ -3,6 +3,11 @@ extends Node2D
 var pressed_buttons = []
 
 
+func _ready():
+	Global.connect("fullscreen_off", self, "fullscreen_button_no")
+	Global.connect("fullscreen_on", self, "fullscreen_button_yes")
+
+
 func _input(event):
 	if event.is_action_pressed("pausa"):
 		$PauseMenuPanel.show()
@@ -44,7 +49,20 @@ func hide_vuoidavvero():
 	$PauseMenuPanel/MainPauseMenu.show()
 
 
+func toggle_fullscreen():
+	if OS.window_fullscreen:
+		OS.window_fullscreen = false
+		fullscreen_button_no()
+		return
+	if not OS.window_fullscreen:
+		OS.window_fullscreen = true
+		fullscreen_button_yes()
+		return
 
 
+func fullscreen_button_no():
+	$PauseMenuPanel/MainPauseMenu/FullscreenButton.text = "SCHERMO INTERO: NO"
 
+func fullscreen_button_yes():
+	$PauseMenuPanel/MainPauseMenu/FullscreenButton.text = "SCHERMO INTERO: SÌ"
 

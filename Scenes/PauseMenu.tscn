@@ -82,7 +82,18 @@ margin_left = -288.0
 margin_top = 155.0
 margin_right = 288.0
 margin_bottom = 234.0
-text = "TORNA AL MENU INZIALE"
+text = "TORNA AL MENU INIZIALE"
+
+[node name="FullscreenButton" parent="PauseMenuPanel/MainPauseMenu" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 263.0
+margin_right = 288.0
+margin_bottom = 342.0
+text = "SCHERMO INTERO: NO"
 
 [node name="VuoiDavvero" type="Control" parent="PauseMenuPanel"]
 visible = false
@@ -134,5 +145,6 @@ text = "NO"
 [connection signal="pause_button_pressed" from="PauseMenuButton4" to="." method="pause_button_pressed"]
 [connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/BackToTitlescreen" to="." method="show_vuoidavvero"]
+[connection signal="button_pressed" from="PauseMenuPanel/MainPauseMenu/FullscreenButton" to="." method="toggle_fullscreen"]
 [connection signal="button_pressed" from="PauseMenuPanel/VuoiDavvero/SiButton" to="." method="back_to_titlescreen"]
 [connection signal="button_pressed" from="PauseMenuPanel/VuoiDavvero/NoButton" to="." method="hide_vuoidavvero"]
