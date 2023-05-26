@@ -65,7 +65,8 @@ func _on_LevelTimer_timeout():
 		$UI/TimeOut/TimeOutTimer.start()
 		yield($UI/TimeOut/TimeOutTimer, "timeout")
 		$UI/TimeOut.hide()
-		$OutroSlides.show()
+		$Totalizzatore.show()
+		$Totalizzatore.init_animations()
 
 
 func reset_minigame():
@@ -93,12 +94,11 @@ func reset_minigame():
 
 
 func _on_results_read():
-	Global.next_minigame()
+	$OutroSlides.show()
 
 
 func _on_outro_slides_read():
-	$Totalizzatore.show()
-	$Totalizzatore.init_animations()
+	Global.next_minigame()
 
 
 func stop_minigame():
