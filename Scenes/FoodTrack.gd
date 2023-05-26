@@ -108,9 +108,8 @@ func _on_clear_button_pressed():
 			if is_filled_correctly:
 				is_filled_correctly = false
 				Global.emit_signal("track_filled", false)
+				Global.emit_signal("untick_item", acceptable_id)
 			$CrashSound.play()
-#			$TransparencyAnimation.play("disappear")
-#			yield($TransparencyAnimation, "animation_finished")
 			$FinishingPoint/ArrivedFoodSprite.modulate = Color.white
 			$FinishingPoint/ArrivedFoodSprite.texture = null
 			$FinishingPoint/FoodBackgroundCorrect.hide()
