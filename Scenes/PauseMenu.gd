@@ -17,7 +17,7 @@ func _input(event):
 func pause_button_pressed(id):
 	if not pressed_buttons.has(id):
 		pressed_buttons.append(id)
-	if pressed_buttons.size() == 2:
+	if pressed_buttons.size() == 4:
 		pressed_buttons.clear()
 		$PauseMenuPanel.show()
 		get_tree().paused = true
