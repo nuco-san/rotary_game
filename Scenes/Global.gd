@@ -23,7 +23,7 @@ func next_minigame():
 	current_round = 1
 	if current_game_mode == game_modes.STORY:
 		if current_minigame == 3:
-			get_tree().change_scene("res://Scenes/FinalScreen.tscn")
+			get_tree().change_scene("res://Scenes/FinalPoints.tscn")
 		else:
 			current_minigame += 1
 			get_tree().change_scene("res://Scenes/Minigiochi/Minigioco_" + str(current_minigame) + ".tscn")
