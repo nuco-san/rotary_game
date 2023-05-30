@@ -205,12 +205,13 @@ margin_bottom = 1149.0
 text = "INDIETRO"
 
 [node name="VERSIONE" type="Label" parent="."]
+visible = false
 margin_left = 1784.0
 margin_top = 1157.0
 margin_right = 1827.0
 margin_bottom = 1171.0
 rect_scale = Vector2( 3, 3 )
-text = "v. 0.23"
+text = "v. 0.24"
 
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/StoryModeButton" to="." method="start_story_mode"]
 [connection signal="button_pressed" from="TitleScreenUI/MainButtons/LevelSelectionButton" to="." method="show_level_selection"]
